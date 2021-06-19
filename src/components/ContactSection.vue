@@ -2,10 +2,12 @@
   <div class="host">
     <div class="basic-contact-row">
       <div class="left">
-        <a v-bind:href="'tel:' + phoneNumber">{{ phoneNumber }}</a>
+        <q-icon name="phone" /><a v-bind:href="'tel:' + phoneNumber">{{
+          phoneNumber
+        }}</a>
       </div>
       <div class="right">
-        <a v-bind:href="'mailto:' + email">{{ email }}</a>
+        <q-icon name="mail" /><a v-bind:href="'mailto:' + email">{{ email }}</a>
       </div>
     </div>
   </div>
