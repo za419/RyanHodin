@@ -94,27 +94,23 @@
     </q-drawer>
 
     <q-page-container>
-      <HelloWorld />
+      <ContactSection />
     </q-page-container>
   </q-layout>
 </template>
 
 <script lang="ts">
-import HelloWorld from "./components/HelloWorld.vue";
+import ContactSection from "@/components/ContactSection.vue";
 
 export default {
   name: "LayoutDefault",
 
-  components: {
-    HelloWorld,
-  },
+  components: { ContactSection },
 
   data(): Record<string, unknown> {
-    return {
-      leftDrawerOpen: false,
-    };
+    return {};
   },
 };
 </script>
 
-<style></style>
+<style lang="scss"></style>
