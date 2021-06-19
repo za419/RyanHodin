@@ -1,6 +1,6 @@
 <template>
   <div class="host">
-    <div class="row">
+    <div class="basic-contact-row">
       <div class="left">
         <a v-bind:href="'tel:' + phoneNumber">{{ phoneNumber }}</a>
       </div>
