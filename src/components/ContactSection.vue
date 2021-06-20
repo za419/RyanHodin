@@ -1,14 +1,21 @@
 <template>
   <div class="host">
-    <div class="basic-contact-row">
-      <div class="left">
-        <q-icon name="phone" /><a v-bind:href="'tel:' + phoneNumber">{{
-          phoneNumber
-        }}</a>
-      </div>
-      <div class="right">
-        <q-icon name="mail" /><a v-bind:href="'mailto:' + email">{{ email }}</a>
-      </div>
+    <div class="left">
+      <a v-bind:href="'tel:' + phoneNumber"
+        ><q-icon name="phone" />{{ phoneNumber }}</a
+      >
+    </div>
+    <div class="right">
+      <a v-bind:href="'mailto:' + email"><q-icon name="mail" />{{ email }}</a>
+    </div>
+    <br />
+    <div class="left">
+      <a v-bind:href="facebookURL"
+        ><q-icon name="fab fa-facebook" />Ryan Hodin</a
+      >
+    </div>
+    <div class="right">
+      <a v-bind:href="githubURL"><q-icon name="fab fa-github" />za419</a>
     </div>
   </div>
 </template>
@@ -20,6 +27,8 @@ export default {
     return {
       phoneNumber: "(012)345-6789",
       email: "address@example.com",
+      facebookURL: "/",
+      githubURL: "https://github.com/za419",
     };
   },
 };
@@ -27,13 +36,17 @@ export default {
 
 <style lang="scss">
 .host {
-  width: 40%;
+  width: 600px;
   margin-left: 5%;
+
+  a .q-icon {
+    color: black;
+  }
 }
 .left {
   float: left;
 }
 .right {
-  float: right;
+  margin-left: 300px;
 }
 </style>
