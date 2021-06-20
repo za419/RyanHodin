@@ -9,12 +9,20 @@
       <a v-bind:href="'mailto:' + email"><q-icon name="mail" />{{ email }}</a>
     </div>
     <div class="left">
+      <a v-bind:href="discordURL"><q-icon name="fab fa-discord" />za419#0014</a>
+    </div>
+    <div class="right">
+      <a v-bind:href="githubURL"><q-icon name="fab fa-github" />za419</a>
+    </div>
+    <div class="left">
       <a v-bind:href="facebookURL"
         ><q-icon name="fab fa-facebook" />Ryan Hodin</a
       >
     </div>
     <div class="right">
-      <a v-bind:href="githubURL"><q-icon name="fab fa-github" />za419</a>
+      <a v-bind:href="linkedinURL"
+        ><q-icon name="fab fa-linkedin" />Ryan Hodin</a
+      >
     </div>
   </div>
 </template>
@@ -26,8 +34,10 @@ export default {
     return {
       phoneNumber: "(012)345-6789",
       email: "address@example.com",
-      facebookURL: "/",
+      discordURL: "https://discord.com/users/195682839998627840",
       githubURL: "https://github.com/za419",
+      facebookURL: "/",
+      linkedinURL: "https://www.linkedin.com/in/ryan-hodin-902191116/",
     };
   },
 };
