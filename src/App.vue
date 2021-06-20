@@ -108,7 +108,9 @@ export default {
   components: { ContactSection },
 
   data(): Record<string, unknown> {
-    return {};
+    return {
+      leftDrawerOpen: false,
+    };
   },
 };
 </script>
