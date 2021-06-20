@@ -35,7 +35,7 @@ export default {
 
 <style lang="scss">
 .host {
-  width: 600px;
+  width: 500px;
   margin: 7px 5%;
 
   a .q-icon {
