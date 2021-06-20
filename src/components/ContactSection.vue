@@ -8,7 +8,6 @@
     <div class="right">
       <a v-bind:href="'mailto:' + email"><q-icon name="mail" />{{ email }}</a>
     </div>
-    <br />
     <div class="left">
       <a v-bind:href="facebookURL"
         ><q-icon name="fab fa-facebook" />Ryan Hodin</a
