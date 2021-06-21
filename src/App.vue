@@ -1,6 +1,6 @@
 <template>
   <q-layout view="lHh Lpr lFf">
-    <q-header elevated class="glossy">
+    <q-header elevated>
       <q-toolbar>
         <q-btn
           flat
@@ -11,9 +11,12 @@
           icon="menu"
         />
 
-        <q-toolbar-title> Quasar App </q-toolbar-title>
+        <q-toolbar-title> Ryan Hodin </q-toolbar-title>
 
-        <div>Quasar v{{ $q.version }}</div>
+        <div>
+          Software Engineer, fiction writer, lover extraordinaire, and
+          exaggerator
+        </div>
       </q-toolbar>
     </q-header>
 
@@ -93,9 +96,11 @@
       </q-list>
     </q-drawer>
 
-    <q-page-container>
-      <ContactSection />
-    </q-page-container>
+    <q-footer height-hint="100" elevated>
+      <q-toolbar><ContactSection /></q-toolbar
+    ></q-footer>
+
+    <q-page-container> </q-page-container>
   </q-layout>
 </template>
 
