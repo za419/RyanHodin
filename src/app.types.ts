@@ -6,4 +6,6 @@ export interface BlogDescription {
   id: number;
   title: string;
   subtitle: string;
+  author: string;
+  published: string; // In any format parsable by JS Date (we'll reformat it for display)
 }
