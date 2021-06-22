@@ -258,7 +258,7 @@ export default async function blogRenderer(
   // For example, the test entry has its datestamp as formatted by Git showing the commit where I wrote it.
   // We should re-format it into a format the reader will like.
   result += new Date(description.published).toLocaleString();
-  result += "</div></div>";
+  result += "</div></div><div class='blog-entry-body'>";
 
   // Download the described blog entry file
   let text: string;
@@ -275,5 +275,5 @@ export default async function blogRenderer(
 
   // Now, we need to iterate through the string to parse it, using our above conversions.
 
-  return result;
+  return result + "</div>";
 }
