@@ -243,9 +243,22 @@ const defaultConversions: ConversionElement[] = [
 export default async function blogRenderer(
   description: BlogDescription
 ): Promise<string> {
+  // Add "front matter"
   let result = "";
   result += "<h2 class='blog-entry-title'>" + description.title + "</h2>";
   result += "<h3 class='blog-entry-subtitle'>" + description.subtitle + "</h3>";
+
+  // Now throw in the publication info
+  result +=
+    "<div class='blog-entry-author-date-row'><div class='blog-entry-author'>Written By: ";
+  result += description.author;
+  result += "</div><div class='blog-entry-date'>Written on: ";
+
+  // The date in the listing could be in any format that Date can parse (for author's convenience)
+  // For example, the test entry has its datestamp as formatted by Git showing the commit where I wrote it.
+  // We should re-format it into a format the reader will like.
+  result += new Date(description.published).toLocaleString();
+  result += "</div></div>";
 
   // Download the described blog entry file
   let text: string;
