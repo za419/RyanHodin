@@ -274,6 +274,72 @@ export default async function blogRenderer(
   }
 
   // Now, we need to iterate through the string to parse it, using our above conversions.
+  // TODO: I'm convinced that there's a better way to implement this loop than this one.
+  // Fundamentally, on each iteration we need to start by finding the index of the first occurrence of any
+  // recognition string in the dictionary, and then figure out what pattern it should match.
+  // The rule should be to match the longest pattern first...
+  // I can think of three ways this should be doable.
+  // 1. (Naive) Search linearly over the strings, at each character checking against each pattern.
+  // 2. (Regex) Programmatically assemble a regular expression that will match any of the patterns,
+  //    then check which one actually best matches the result we're given
+  // 3. (indexOf mapping) Find the first index of each pattern, filter down to the ones that tie for earliest match,
+  //    then choose one from these.
+  // I've chosen to use option 3. I want either 2 or 3 because they make best use of the browser's ability to use native code,
+  // and I prefer 3 for ending up using a less powerful tool (regex is more than we need for 'where does this first show up?')
+  // Most of the iteration happens over shortening lists of translations anyway - Not the much longer (in practice) text.
+  while (text.length) {
+    // First, find the indices for all conversions.
+    const translationIndices = defaultConversions.map((conversion) => {
+      const index = text.indexOf(conversion.start);
+      return {
+        // Make sure the 'not found' index is the largest, not the smallest
+        index: index === -1 ? text.length + 1 : index,
+        conversion,
+      };
+    });
 
+    // Now, find the index of the first conversion we run into...
+    const firstIndex = Math.min(
+      ...translationIndices.map((result) => result.index)
+    );
+
+    // Check that this actually occurs in the text.
+    // If it doesn't, then we've done all the conversions, and we can handle that immediately.
+    if (firstIndex > text.length) {
+      result += text;
+      break;
+    }
+
+    // And find the winning conversion.
+    // It is in fact perfectly legal to have a tie - This is perhaps non-obvious, but in the case of for example --image,
+    // the first match will be a tie between - and --image.
+    // We need to make sure we pick the correct one - The longest of all the matches that appear at the earliest index.
+    const translation = translationIndices.reduce((previous, current) => {
+      // If this is not the first match, don't even bother looking at it.
+      if (current.index > firstIndex) {
+        return previous;
+      }
+
+      // If this is a first match, then return the option with the longer length
+      // If there is a length tie, return the current option - The last specified element wins.
+      if (
+        previous == null ||
+        current.conversion.start.length >= previous.conversion.start.length
+      ) {
+        return current;
+      }
+
+      // If previous is non-null and previous is longer than current, keep previous.
+      return previous;
+    }, null as { index: number; conversion: ConversionElement } | null) as {
+      index: number;
+      conversion: ConversionElement;
+    };
+
+    // Notice the assertion above that the result will never be null - This is true whenever we have at least one translation at minimum index, which we have to.
+    // So now we have a translation, and we can expand it into HTML.
+  }
+
+  // Remember to close the blog-entry-body div when we return the contents.
   return result + "</div>";
 }
