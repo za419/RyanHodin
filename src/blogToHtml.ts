@@ -338,6 +338,43 @@ export default async function blogRenderer(
 
     // Notice the assertion above that the result will never be null - This is true whenever we have at least one translation at minimum index, which we have to.
     // So now we have a translation, and we can expand it into HTML.
+    // First, we need to not lose the text before the first translation tag.
+    result += text.substring(0, translation.index);
+
+    // Now, we look at the translation itself. We need to find the translation's end tag.
+    // This is rather easy - We know what string we're looking for, and we don't care if other start or end tags appear in between.
+    const end = text.indexOf(translation.conversion.end, translation.index + 1);
+
+    // If the translation never ends, then we should treat it as plantext and continue.
+    if (end === -1) {
+      result += translation.conversion.start;
+      text = text.substring(
+        translation.index + translation.conversion.start.length
+      );
+      continue;
+    }
+
+    // Assuming it doesn't, we can separate the translation text and the continuation text.
+    const translationText = text.substring(
+      translation.index + translation.conversion.start.length,
+      end
+    );
+    text = text.substring(end + translation.conversion.end.length);
+
+    // And now all we have to do is figure out what to add to result.
+    // Start with the translation start tag.
+    result += translation.conversion.open;
+
+    // If the translation has a custom translator, call it and add it onto result.
+    if (translation.conversion.processContents) {
+      result += translation.conversion.processContents(translationText);
+    } else {
+      // Otherwise, just use the plaintext.
+      result += translationText;
+    }
+
+    // And finally, add on the closing tag.
+    result += translation.conversion.close;
   }
 
   // Remember to close the blog-entry-body div when we return the contents.
