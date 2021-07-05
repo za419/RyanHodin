@@ -58,6 +58,12 @@ const defaultConversions: ConversionElement[] = [
     close: "</sup>",
   },
   {
+    start: "_____",
+    end: "\n",
+    open: "<hr>",
+    close: "",
+  },
+  {
     start: "#",
     end: "\n",
     open: '<h4 class="blog-text-title">',
