@@ -239,7 +239,9 @@ const defaultConversions: ConversionElement[] = [
 
       // Now add on the caption.
       image +=
-        "<figcaption class='blog-text-image-caption>" + title + "</figcaption>";
+        "<figcaption class='blog-text-image-caption'>" +
+        title +
+        "</figcaption>";
 
       return image;
     },
