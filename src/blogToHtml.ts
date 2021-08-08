@@ -211,7 +211,7 @@ const defaultConversions: ConversionElement[] = [
       image += "title='" + title + "' ";
 
       // Chop off that part and continue to the alt-text.
-      properties = properties.substring(firstSpace + 1);
+      properties = properties.substring(quoteIndex + 1);
 
       // Chop off the part of properties leading up to the next quote
       // (we spec whitespace only, but don't verify that's the case.)
