@@ -64,6 +64,18 @@ const defaultConversions: ConversionElement[] = [
     close: "",
   },
   {
+    start: "\n\n",
+    end: "",
+    open: "<p>",
+    close: "",
+  },
+  {
+    start: "\n",
+    end: "",
+    open: "<br>",
+    close: "",
+  },
+  {
     start: "#",
     end: "\n",
     open: '<h4 class="blog-text-title">',
@@ -276,6 +288,9 @@ export default async function blogRenderer(
     text = `# Test string.
     /italics/ *bold* -strikethrough- _underline_ ^superscript^
 
+    More words.
+    Test words.
+
     _____
     ## Second paragraph.
     --image https://upload.wikimedia.org/wikipedia/commons/thumb/b/b6/Image_created_with_a_mobile_phone.png/1200px-Image_created_with_a_mobile_phone.png "Image title" "Alt text?" image--
@@ -360,7 +375,10 @@ export default async function blogRenderer(
 
     // Now, we look at the translation itself. We need to find the translation's end tag.
     // This is rather easy - We know what string we're looking for, and we don't care if other start or end tags appear in between.
-    const end = text.indexOf(translation.conversion.end, translation.index + 1);
+    const end = text.indexOf(
+      translation.conversion.end,
+      translation.index + translation.conversion.start.length
+    );
 
     // If the translation never ends, then we should treat it as plantext and continue.
     if (end === -1) {
