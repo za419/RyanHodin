@@ -269,8 +269,17 @@ export default async function blogRenderer(
   // Download the described blog entry file
   let text: string;
   try {
-    const response = await fetch("/assets/blog/" + description.id + ".blog");
-    text = await response.text();
+    // const response = await fetch("/assets/blog/" + description.id + ".blog");
+    // text = await response.text();
+    text = `# Test string.
+    /italics/ *bold* -strikethrough- _underline_ ^superscript^
+
+    _____
+    ## Second paragraph.
+    --image https://upload.wikimedia.org/wikipedia/commons/thumb/b/b6/Image_created_with_a_mobile_phone.png/1200px-Image_created_with_a_mobile_phone.png "Image title" "Alt text?" image--
+
+    ### Third paragraph.
+    --link https://google.com/ "Link" "Link Title" link--`;
   } catch {
     result +=
       "<div class='error'>An error occurred while fetching information for this blog post (id " +
