@@ -37,11 +37,36 @@ export default {
 
 <style lang="scss">
 .host {
-  width: 500px;
-  margin: 7px 5%;
+  width: 75%;
+  margin: 7px auto;
 
   a .q-icon {
     color: black;
+  }
+
+  p {
+    margin-top: 1em;
+  }
+
+  h2.blog-entry-title {
+    font-size: 5rem;
+    font-weight: 500;
+    margin-bottom: 20px;
+  }
+
+  h3.blog-entry-subtitle {
+    font-size: 2rem;
+    margin-top: 10px;
+  }
+
+  .blog-entry-author-date-row {
+    padding-bottom: 1rem;
+    border-bottom: 6px groove gray;
+  }
+
+  .blog-text-image {
+    margin: auto;
+    width: 80%;
   }
 }
 .left {
@@ -49,5 +74,19 @@ export default {
 }
 .right {
   margin-left: 300px;
+}
+
+@media screen and (min-width: 750px) {
+  .blog-entry-author-date-row {
+    padding-bottom: 0.5rem;
+
+    .blog-entry-author {
+      display: inline-block;
+    }
+
+    .blog-entry-date {
+      float: right;
+    }
+  }
 }
 </style>
