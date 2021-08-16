@@ -19,8 +19,6 @@ async function getContents(): Promise<string> {
 
   const result = await blogRenderer(item);
 
-  console.log(result);
-
   return result;
 }
 
@@ -62,11 +60,37 @@ export default {
   .blog-entry-author-date-row {
     padding-bottom: 1rem;
     border-bottom: 6px groove gray;
+    margin-bottom: 0.75em;
   }
 
-  .blog-text-image {
-    margin: auto;
-    width: 80%;
+  h4,
+  h5,
+  h6 {
+    margin: 1em 0;
+  }
+
+  hr + h4,
+  hr + h5,
+  hr + h6 {
+    margin-top: 0;
+  }
+
+  .blog-text-image-container {
+    border: 1px solid black;
+    margin: 0 auto 2em;
+    padding: 5px;
+    width: 60%;
+    max-width: 750px;
+
+    .blog-text-image {
+      width: 100%;
+    }
+
+    .blog-text-image-caption {
+      font-family: "Georgia", "Times New Roman", Times, serif;
+      font-size: 1.1em;
+      margin-left: 2px;
+    }
   }
 }
 .left {
