@@ -46,6 +46,12 @@ const defaultConversions: ConversionElement[] = [
     close: "</s>",
   },
   {
+    start: "--",
+    end: "",
+    open: "-",
+    close: "",
+  },
+  {
     start: "_",
     end: "_",
     open: "<u>",

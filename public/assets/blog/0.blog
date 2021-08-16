@@ -1,13 +1,13 @@
 It all started many years ago, when the Earth was formed.
 
-Well, actually, it started a long time before that - When the universe was formed and Time came into being - But I don't want to get into that.
+Well, actually, it started a long time before that -- When the universe was formed and Time came into being -- But I don't want to get into that.
 
 Long after the Earth was formed, and after even I came to be, I made the decision to create this site.
 The reasons for this are long, but one important one was that I wanted to learn how to use different tools than the ones I use professionally to create a website.
 
 So many decisions here involve me making choices that involve something I want to explore building, moreso than something I have use for.
 
-And thus, I came to this - Because I thought it would be fun to write a client-side blog post generator.
+And thus, I came to this -- Because I thought it would be fun to write a client--side blog post generator.
 Basically, this little thing is highly inefficient, but it's written straight in Vue's renderer for the component this is in, entirely by hand.
 
 Which made it fun to write.
@@ -22,7 +22,7 @@ Yes, this post is the test text for the generator. Yes, I am still including it 
 
 Honestly, I'm not worrying about most of these questions. I'm just writing stuff.
 
-Like I said, the whole point of this is so I can try out building the tech around it - The renderer for this format is the meat behind why I'm making this.
+Like I said, the whole point of this is so I can try out building the tech around it -- The renderer for this format is the meat behind why I'm making this.
 
 Which brings us to points like this --link /blog/0 "link" "You probably don't care enough to click this." link--
 
