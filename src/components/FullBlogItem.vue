@@ -4,7 +4,7 @@
 
 <script lang="ts">
 import blogRenderer from "../blogToHtml";
-import blogListing from "../assets/blog/listing.json";
+import blogListing from "../../public/assets/blog/listing.json";
 
 const data = { text: "Loading..." };
 
