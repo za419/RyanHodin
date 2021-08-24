@@ -264,6 +264,48 @@ const defaultConversions: ConversionElement[] = [
       return image;
     },
   },
+  {
+    start: "\n--list ",
+    end: "\nlist--",
+    open: "",
+    close: "",
+    processContents: (spec) => {
+      // A list spec has the following structure:
+      // --list <type>
+      // <items>
+      // list--
+      // <type> must be either "ordered" or "unordered"
+      // <items> should be a newline-separated collection of items for the list.
+
+      // First, figure out the type.
+      const firstNewline = spec.indexOf("\n");
+      const typeString = spec.substring(0, firstNewline).trim();
+      let isOrdered = null;
+      if (typeString === "ordered") {
+        isOrdered = true;
+      } else if (typeString === "unordered") {
+        isOrdered = false;
+      } else {
+        console.error("Unknown list type", typeString, "in link spec", spec);
+        // Don't fail out of the translation - Let the null to default us to unordered.
+      }
+
+      // Now, turn the newline-separated list into a string of DOM list items
+      const items = spec.substring(firstNewline + 1).split("\n");
+      const contents = items
+        .map((item) => `<li class='blog-text-list-item'>${item}</li>`)
+        .join("");
+
+      // And finally, assemble the result based on both above parts.
+      let result;
+      if (isOrdered) {
+        result = `<ol class='blog-text-ordered-list'>${contents}</ol>`;
+      } else {
+        result = `<ul class='blog-text-unordered-list'>${contents}</ul>`;
+      }
+      return result;
+    },
+  },
 ];
 
 export default async function blogRenderer(
