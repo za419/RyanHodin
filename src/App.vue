@@ -95,17 +95,18 @@
       <q-toolbar><ContactSection /></q-toolbar
     ></q-footer>
 
-    <q-page-container> </q-page-container>
+    <q-page-container><FullBlogItem /></q-page-container>
   </q-layout>
 </template>
 
 <script lang="ts">
 import ContactSection from "@/components/ContactSection.vue";
+import FullBlogItem from "./components/FullBlogItem.vue";
 
 export default {
   name: "LayoutDefault",
 
-  components: { ContactSection },
+  components: { ContactSection, FullBlogItem },
 
   data(): Record<string, unknown> {
     return {
