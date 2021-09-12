@@ -19,7 +19,7 @@
     So let's try a different approach. Here's a list of facts about me, in no
     particular order:
     <p></p>
-    <ul class="unordered-list">
+    <ul>
       <li>I own a <strong>lot</strong> of plants.</li>
       <li>
         Most of my plants are <em>Tillandsia</em>, otherwise known as air
@@ -52,12 +52,12 @@
       hour of work, and the whole thing is generally a better idea.
     </p>
     <p>
-      Ultimately though, the point is for me to learn things. Like the blog
-      generation system I wrote, which is entirely client-side, uses a custom
-      language, and is generally worse than statically processed Markdown in
-      pretty much every way, but I thought it would be an interesting exercise
-      to create such a thing, so I did. And maybe you'll enjoy yourself toying
-      with this site too!
+      Ultimately though, the point is for me to learn things. Like the
+      <router-link to="/blogdev">blog generation system</router-link> I wrote,
+      which is entirely client-side, uses a custom language, and is generally
+      worse than statically processed Markdown in pretty much every way, but I
+      thought it would be an interesting exercise to create such a thing, so I
+      did. And maybe you'll enjoy yourself toying with this site too!
     </p>
   </div>
 </template>
