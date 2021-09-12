@@ -1,5 +1,5 @@
 <template>
-  <div class="host" v-html="text"></div>
+  <div class="host" v-html="text || 'Loading...'"></div>
 </template>
 
 <script lang="ts">
