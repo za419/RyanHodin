@@ -1,5 +1,5 @@
 <template>
-  <FullBlogItem :id="parseInt($route.params.id)" />
+  <FullBlogItem :id="parseInt($route.params.id)" navigationRoot="/blog/" />
 </template>
 
 <script lang="ts">
