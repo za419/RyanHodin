@@ -9,7 +9,7 @@
       v-model="source"
       placeholder="Post contents"
     ></textarea>
-    <div v-html="text"></div>
+    <div class="results" v-html="text"></div>
   </div>
 </template>
 
@@ -61,6 +61,12 @@ export default {
   textarea {
     width: 100%;
     height: 20vh;
+  }
+
+  .results {
+    height: 750px;
+    width: 100%;
+    overflow-y: auto;
   }
 
   a .q-icon {
