@@ -308,38 +308,30 @@ const defaultConversions: ConversionElement[] = [
   },
 ];
 
-export default async function blogRenderer(
-  description: BlogDescription
-): Promise<string> {
+// Renders a blog item based on variables, rather than a file of contents
+export function blogDataRenderer(
+  title: string,
+  subtitle: string,
+  author: string,
+  published: string,
+  text: string
+): string {
   // Add "front matter"
   let result = "";
-  result += "<h2 class='blog-entry-title'>" + description.title + "</h2>";
-  result += "<h3 class='blog-entry-subtitle'>" + description.subtitle + "</h3>";
+  result += "<h2 class='blog-entry-title'>" + title + "</h2>";
+  result += "<h3 class='blog-entry-subtitle'>" + subtitle + "</h3>";
 
   // Now throw in the publication info
   result +=
     "<div class='blog-entry-author-date-row'><div class='blog-entry-author'>Written By: ";
-  result += description.author;
+  result += author;
   result += "</div><div class='blog-entry-date'>Written on: ";
 
   // The date in the listing could be in any format that Date can parse (for author's convenience)
   // For example, the test entry has its datestamp as formatted by Git showing the commit where I wrote it.
   // We should re-format it into a format the reader will like.
-  result += new Date(description.published).toLocaleString();
+  result += new Date(published).toLocaleString();
   result += "</div></div><div class='blog-entry-body'>";
-
-  // Download the described blog entry file
-  let text: string;
-  try {
-    const response = await fetch("/assets/blog/" + description.id + ".blog");
-    text = await response.text();
-  } catch {
-    result +=
-      "<div class='error'>An error occurred while fetching information for this blog post (id " +
-      description.id +
-      ").</div>";
-    return result;
-  }
 
   // Now, we need to iterate through the string to parse it, using our above conversions.
   // TODO: I'm convinced that there's a better way to implement this loop than this one.
@@ -450,4 +442,29 @@ export default async function blogRenderer(
 
   // Remember to close the blog-entry-body div when we return the contents.
   return result + "</div>";
+}
+
+export default async function blogRenderer(
+  description: BlogDescription
+): Promise<string> {
+  // Download the described blog entry file
+  let text: string;
+  try {
+    const response = await fetch("/assets/blog/" + description.id + ".blog");
+    text = await response.text();
+  } catch {
+    text =
+      "<div class='error'>An error occurred while fetching information for this blog post (id " +
+      description.id +
+      ").</div>";
+  }
+
+  // And let the data-driven renderer do all the work
+  return blogDataRenderer(
+    description.title,
+    description.subtitle,
+    description.author,
+    description.published,
+    text
+  );
 }
