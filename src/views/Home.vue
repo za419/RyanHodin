@@ -1,5 +1,5 @@
 <template>
-  <div class="home"><FullBlogItem /></div>
+  <div class="home"></div>
 </template>
 
 <script lang="ts">
