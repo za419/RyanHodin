@@ -2,7 +2,7 @@
   <div class="host">
     <h3>Live Blog Post Preview</h3>
     <div class="meta-row">
-      <input type="text" v-model="title" placeholder="Post title" />
+      <input type="text" v-model="postTitle" placeholder="Post title" />
       <input type="text" v-model="subtitle" placeholder="Post subtitle" />
     </div>
     <textarea
@@ -25,7 +25,7 @@ export default Vue.extend({
   name: "LiveBlogRenderer",
   data(): Record<string, string> {
     return {
-      title: "",
+      postTitle: "",
       subtitle: "",
       source: "",
     };
@@ -33,12 +33,17 @@ export default Vue.extend({
   computed: {
     contents: function (): { header: string; body: string } {
       return blogDataRenderer(
-        this.title,
+        this.postTitle,
         this.subtitle,
         "You",
         new Date().toString(),
         this.source
       );
+    },
+  },
+  methods: {
+    title(): string {
+      return "Live renderer for blog posts - Ryan Hodin";
     },
   },
 });
