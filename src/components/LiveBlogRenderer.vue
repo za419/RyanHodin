@@ -60,7 +60,7 @@ export default {
 
   textarea {
     width: 100%;
-    height: 50vh;
+    height: 20vh;
   }
 
   a .q-icon {
