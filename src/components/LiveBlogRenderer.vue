@@ -28,6 +28,7 @@ export default Vue.extend({
       title: "",
       subtitle: "",
       source: "",
+      pageTitle: "Live renderer for blog posts - Ryan Hodin",
     };
   },
   computed: {
@@ -39,11 +40,6 @@ export default Vue.extend({
         new Date().toString(),
         this.source
       );
-    },
-  },
-  methods: {
-    pageTitle(): string {
-      return "Live renderer for blog posts - Ryan Hodin";
     },
   },
 });
