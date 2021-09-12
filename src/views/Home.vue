@@ -1,15 +1,12 @@
 <template>
-  <div class="home">
-    <img alt="Vue logo" src="../assets/logo.png" />
-  </div>
+  <div class="home"><FullBlogItem /></div>
 </template>
 
 <script lang="ts">
 import { Component, Vue } from "vue-property-decorator";
 
 @Component({
-  components: {
-  },
+  components: {},
 })
 export default class Home extends Vue {}
 </script>

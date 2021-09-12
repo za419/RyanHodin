@@ -12,7 +12,7 @@ const data = { text: "Loading..." };
 async function getContents(): Promise<string> {
   await new Promise((r) => setTimeout(r, 3000));
   // Get the blog item. If it doesn't exist, print an error.
-  const item = blogListing.find((blog) => blog.id === 0);
+  const item = blogListing.find((blog) => blog.id === 1);
   if (!item) {
     return '<div class="error">Blog with id 0 does not exist.</div>';
   }
