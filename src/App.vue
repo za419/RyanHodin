@@ -23,7 +23,7 @@
     <q-drawer v-model="leftDrawerOpen" bordered content-class="bg-grey-2">
       <q-list>
         <q-item-label header>Navigation</q-item-label>
-        <q-item clickable tag="a" href="/">
+        <q-item clickable tag="router-link" to="/">
           <q-item-section avatar>
             <q-icon name="home" />
           </q-item-section>
@@ -32,16 +32,7 @@
             <q-item-label caption>A little bit of everything</q-item-label>
           </q-item-section>
         </q-item>
-        <q-item clickable tag="a" href="/#/blog/0">
-          <q-item-section avatar>
-            <q-icon name="rss_feed" />
-          </q-item-section>
-          <q-item-section>
-            <q-item-label>Blog Article 0</q-item-label>
-            <q-item-label caption>Subtitle here</q-item-label>
-          </q-item-section>
-        </q-item>
-        <q-item clickable tag="a" href="/#/about">
+        <q-item clickable tag="router-link" to="/about">
           <q-item-section avatar>
             <q-icon name="info" />
           </q-item-section>
@@ -50,6 +41,15 @@
             <q-item-label caption
               >A little about the guy who made this</q-item-label
             >
+          </q-item-section>
+        </q-item>
+        <q-item clickable tag="router-link" to="/blog/0">
+          <q-item-section avatar>
+            <q-icon name="rss_feed" />
+          </q-item-section>
+          <q-item-section>
+            <q-item-label>Blog Article 0</q-item-label>
+            <q-item-label caption>Subtitle here</q-item-label>
           </q-item-section>
         </q-item>
       </q-list>
