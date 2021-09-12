@@ -1,9 +1,9 @@
 <template>
   <div class="host">
     <div class="header" v-html="contents.header"></div>
-    <div class="navigation" v-if="navigation">
+    <div class="navigation" v-if="navigationRoot != null">
       <div class="previous" v-if="lastID != null">
-        <router-link :to="'/blog/' + lastID"
+        <router-link :to="navigationRoot + lastID"
           ><q-icon
             name="arrow_left"
             color="green"
@@ -12,7 +12,7 @@
         >
       </div>
       <div class="next" v-if="nextID != null">
-        <router-link :to="'/blog/' + nextID"
+        <router-link :to="navigationRoot + nextID"
           >Newer<q-icon name="arrow_right" color="green" size="25px"
         /></router-link>
       </div>
@@ -29,7 +29,7 @@ import blogListing from "../../public/assets/blog/listing.json";
 export default Vue.extend({
   props: {
     id: { type: Number, required: true },
-    navigation: { type: Boolean, default: () => false },
+    navigationRoot: { type: String, default: () => null },
   },
   name: "FullBlogItem",
   asyncComputed: {
