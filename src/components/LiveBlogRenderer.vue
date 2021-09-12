@@ -15,9 +15,10 @@
 </template>
 
 <script lang="ts">
+import Vue from "vue";
 import { blogDataRenderer } from "../blogToHtml";
 
-export default {
+export default Vue.extend({
   name: "LiveBlogRenderer",
   data(): Record<string, string> {
     return {
@@ -37,7 +38,7 @@ export default {
       );
     },
   },
-};
+});
 </script>
 
 <style lang="scss">

@@ -3,10 +3,11 @@
 </template>
 
 <script lang="ts">
+import Vue from "vue";
 import blogRenderer from "../blogToHtml";
 import blogListing from "../../public/assets/blog/listing.json";
 
-export default {
+export default Vue.extend({
   props: { id: { type: Number, required: true } },
   name: "FullBlogItem",
   asyncComputed: {
@@ -20,7 +21,7 @@ export default {
       return await blogRenderer(item);
     },
   },
-};
+});
 </script>
 
 <style lang="scss">
