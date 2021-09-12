@@ -1,5 +1,6 @@
 <template>
   <div class="host">
+    <h3>Live Blog Post Preview</h3>
     <div class="meta-row">
       <input type="text" v-model="title" placeholder="Post title" />
       <input type="text" v-model="subtitle" placeholder="Post subtitle" />
@@ -43,6 +44,10 @@ export default {
 .host {
   width: 75%;
   margin: 7px auto;
+
+  h3 {
+    margin: 12px 0;
+  }
 
   .meta-row {
     width: 100%;
