@@ -27,9 +27,9 @@ export default Vue.extend({
       source: "",
     };
   },
-  asyncComputed: {
-    text: async function (): Promise<string> {
-      return await blogDataRenderer(
+  computed: {
+    text: function (): string {
+      return blogDataRenderer(
         this.title,
         this.subtitle,
         "You",
