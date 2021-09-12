@@ -4,33 +4,36 @@
       <input type="text" v-model="title" placeholder="Post title" />
       <input type="text" v-model="subtitle" placeholder="Post subtitle" />
     </div>
-    <textarea class="contents" placeholder="Post contents"></textarea>
+    <textarea
+      class="contents"
+      v-model="source"
+      placeholder="Post contents"
+    ></textarea>
     <div v-html="text"></div>
   </div>
 </template>
 
 <script lang="ts">
-import { BlogDescription } from "../app.types";
-import blogRenderer from "../blogToHtml";
+import { blogDataRenderer } from "../blogToHtml";
 
 export default {
   name: "LiveBlogRenderer",
   data(): Record<string, string> {
     return {
-      title: "Blog Title",
-      subtitle: "Blog Subtitle",
+      title: "Post Title",
+      subtitle: "Post Subtitle",
+      source: "Post Contents",
     };
   },
   asyncComputed: {
     text: async function (): Promise<string> {
-      const description: BlogDescription = {
-        id: -1,
-        title: this.title,
-        subtitle: this.subtitle,
-        author: "You",
-        published: new Date().toString(),
-      };
-      return await blogRenderer(description);
+      return await blogDataRenderer(
+        this.title,
+        this.subtitle,
+        "You",
+        new Date().toString(),
+        this.source
+      );
     },
   },
 };
