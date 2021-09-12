@@ -20,9 +20,9 @@ export default {
   name: "LiveBlogRenderer",
   data(): Record<string, string> {
     return {
-      title: "Post Title",
-      subtitle: "Post Subtitle",
-      source: "Post Contents",
+      title: "",
+      subtitle: "",
+      source: "",
     };
   },
   asyncComputed: {
