@@ -85,6 +85,7 @@ export default Vue.extend({
 
   h2.blog-entry-title {
     font-size: 5rem;
+    line-height: 5rem;
     font-weight: 500;
     margin-bottom: 20px;
   }
@@ -135,6 +136,19 @@ export default Vue.extend({
 }
 .right {
   margin-left: 300px;
+}
+
+@media screen and (orientation: portrait) {
+  .host {
+    width: 95%;
+  }
+}
+
+@media screen and (max-width: 1100px) {
+  .host h2.blog-entry-title {
+    font-size: 2.5rem;
+    line-height: 2.5rem;
+  }
 }
 
 @media screen and (min-width: 750px) {
