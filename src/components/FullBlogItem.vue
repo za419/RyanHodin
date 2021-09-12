@@ -25,6 +25,7 @@
 import Vue from "vue";
 import blogRenderer from "../blogToHtml";
 import blogListing from "../../public/assets/blog/listing.json";
+import { BlogDescription } from "@/app.types";
 
 export default Vue.extend({
   props: {
@@ -35,18 +36,20 @@ export default Vue.extend({
   asyncComputed: {
     contents: async function (): Promise<{ header: string; body: string }> {
       // Get the blog item. If it doesn't exist, print an error.
-      const item = blogListing.find((blog) => blog.id === this.id);
-      if (!item) {
+      if (!this.currentListing) {
         return {
           header: `<div class="error">Blog with id ${this.id} does not exist.</div>`,
           body: "",
         };
       }
 
-      return await blogRenderer(item);
+      return await blogRenderer(this.currentListing);
     },
   },
   computed: {
+    currentListing: function (): BlogDescription | undefined {
+      return blogListing.find((blog) => blog.id === this.id);
+    },
     lastID: function (): number | null {
       const minID = Math.min(...blogListing.map((item) => item.id));
       return this.id === minID ? null : this.id - 1;
@@ -54,6 +57,14 @@ export default Vue.extend({
     nextID: function (): number | null {
       const maxID = Math.max(...blogListing.map((item) => item.id));
       return this.id === maxID ? null : this.id + 1;
+    },
+  },
+  methods: {
+    pageTitle: function (): string {
+      if (this.currentListing) {
+        return this.currentListing.title + " - " + this.currentListing.author;
+      }
+      return "Blog item viewer - Ryan Hodin";
     },
   },
 });
