@@ -1,5 +1,8 @@
 <template>
-  <div class="host" v-html="text || 'Loading...'"></div>
+  <div class="host">
+    <div class="header" v-html="contents.header"></div>
+    <div class="body" v-html="contents.body || 'Loading...'"></div>
+  </div>
 </template>
 
 <script lang="ts">
@@ -8,14 +11,19 @@ import blogRenderer from "../blogToHtml";
 import blogListing from "../../public/assets/blog/listing.json";
 
 export default Vue.extend({
-  props: { id: { type: Number, required: true } },
+  props: {
+    id: { type: Number, required: true },
+  },
   name: "FullBlogItem",
   asyncComputed: {
-    text: async function (): Promise<string> {
+    contents: async function (): Promise<{ header: string; body: string }> {
       // Get the blog item. If it doesn't exist, print an error.
       const item = blogListing.find((blog) => blog.id === this.id);
       if (!item) {
-        return `<div class="error">Blog with id ${this.id} does not exist.</div>`;
+        return {
+          header: `<div class="error">Blog with id ${this.id} does not exist.</div>`,
+          body: "",
+        };
       }
 
       return await blogRenderer(item);

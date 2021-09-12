@@ -10,7 +10,10 @@
       v-model="source"
       placeholder="Post contents"
     ></textarea>
-    <div class="results" v-html="text"></div>
+    <div class="results">
+      <div class="result-header" v-html="contents.header"></div>
+      <div class="result-body" v-html="contents.body"></div>
+    </div>
   </div>
 </template>
 
@@ -28,7 +31,7 @@ export default Vue.extend({
     };
   },
   computed: {
-    text: function (): string {
+    contents: function (): { header: string; body: string } {
       return blogDataRenderer(
         this.title,
         this.subtitle,

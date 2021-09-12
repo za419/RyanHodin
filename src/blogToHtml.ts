@@ -315,23 +315,27 @@ export function blogDataRenderer(
   author: string,
   published: string,
   text: string
-): string {
-  // Add "front matter"
-  let result = "";
-  result += "<h2 class='blog-entry-title'>" + title + "</h2>";
-  result += "<h3 class='blog-entry-subtitle'>" + subtitle + "</h3>";
+): { header: string; body: string } {
+  // Create "front matter"
+  let header = "";
+  header += "<h2 class='blog-entry-title'>" + title + "</h2>";
+  header += "<h3 class='blog-entry-subtitle'>" + subtitle + "</h3>";
 
   // Now throw in the publication info
-  result +=
+  header +=
     "<div class='blog-entry-author-date-row'><div class='blog-entry-author'>Written By: ";
-  result += author;
-  result += "</div><div class='blog-entry-date'>Written on: ";
+  header += author;
+  header += "</div><div class='blog-entry-date'>Written on: ";
 
   // The date in the listing could be in any format that Date can parse (for author's convenience)
   // For example, the test entry has its datestamp as formatted by Git showing the commit where I wrote it.
   // We should re-format it into a format the reader will like.
-  result += new Date(published).toLocaleString();
-  result += "</div></div><div class='blog-entry-body'>";
+  header += new Date(published).toLocaleString();
+  header += "</div></div>";
+
+  // Now, get started on the body.
+  // Start by opening the tag (naturally)
+  let body = "<div class='blog-entry-body'>";
 
   // Now, we need to iterate through the string to parse it, using our above conversions.
   // TODO: I'm convinced that there's a better way to implement this loop than this one.
@@ -366,7 +370,7 @@ export function blogDataRenderer(
     // Check that this actually occurs in the text.
     // If it doesn't, then we've done all the conversions, and we can handle that immediately.
     if (firstIndex > text.length) {
-      result += text;
+      body += text;
       break;
     }
 
@@ -399,7 +403,7 @@ export function blogDataRenderer(
     // Notice the assertion above that the result will never be null - This is true whenever we have at least one translation at minimum index, which we have to.
     // So now we have a translation, and we can expand it into HTML.
     // First, we need to not lose the text before the first translation tag.
-    result += text.substring(0, translation.index);
+    body += text.substring(0, translation.index);
 
     // Now, we look at the translation itself. We need to find the translation's end tag.
     // This is rather easy - We know what string we're looking for, and we don't care if other start or end tags appear in between.
@@ -410,7 +414,7 @@ export function blogDataRenderer(
 
     // If the translation never ends, then we should treat it as plantext and continue.
     if (end === -1) {
-      result += translation.conversion.start;
+      body += translation.conversion.start;
       text = text.substring(
         translation.index + translation.conversion.start.length
       );
@@ -426,27 +430,28 @@ export function blogDataRenderer(
 
     // And now all we have to do is figure out what to add to result.
     // Start with the translation start tag.
-    result += translation.conversion.open;
+    body += translation.conversion.open;
 
     // If the translation has a custom translator, call it and add it onto result.
     if (translation.conversion.processContents) {
-      result += translation.conversion.processContents(translationText);
+      body += translation.conversion.processContents(translationText);
     } else {
       // Otherwise, just use the plaintext.
-      result += translationText;
+      body += translationText;
     }
 
     // And finally, add on the closing tag.
-    result += translation.conversion.close;
+    body += translation.conversion.close;
   }
 
-  // Remember to close the blog-entry-body div when we return the contents.
-  return result + "</div>";
+  // Remember to close the blog-entry-body div before we return the contents.
+  body += "</div>";
+  return { header, body };
 }
 
 export default async function blogRenderer(
   description: BlogDescription
-): Promise<string> {
+): Promise<{ header: string; body: string }> {
   // Download the described blog entry file
   let text: string;
   try {
