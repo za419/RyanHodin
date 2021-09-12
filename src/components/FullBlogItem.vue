@@ -1,6 +1,14 @@
 <template>
   <div class="host">
     <div class="header" v-html="contents.header"></div>
+    <div class="navigation" v-if="navigation">
+      <div class="previous">
+        <q-icon name="arrow_left" color="green" size="25px" /> Older
+      </div>
+      <div class="next">
+        Newer <q-icon name="arrow_right" color="green" size="25px" />
+      </div>
+    </div>
     <div class="body" v-html="contents.body || 'Loading...'"></div>
   </div>
 </template>
@@ -13,6 +21,7 @@ import blogListing from "../../public/assets/blog/listing.json";
 export default Vue.extend({
   props: {
     id: { type: Number, required: true },
+    navigation: { type: Boolean, default: () => false },
   },
   name: "FullBlogItem",
   asyncComputed: {
@@ -37,6 +46,26 @@ export default Vue.extend({
   width: 75%;
   margin: 7px auto;
 
+  .navigation {
+    width: 100%;
+    height: 30px;
+    position: relative;
+
+    .q-icon {
+      margin: 0 -7px 2.5px;
+    }
+
+    .previous {
+      position: absolute;
+      left: 0;
+    }
+
+    .next {
+      position: absolute;
+      right: 0;
+    }
+  }
+
   a .q-icon {
     color: black;
   }
@@ -58,9 +87,12 @@ export default Vue.extend({
   }
 
   .blog-entry-author-date-row {
-    padding-bottom: 1rem;
-    border-bottom: 6px groove gray;
     margin-bottom: 0.75em;
+  }
+
+  .blog-entry-body {
+    border-top: 6px groove gray;
+    padding-top: 1rem;
   }
 
   h4,

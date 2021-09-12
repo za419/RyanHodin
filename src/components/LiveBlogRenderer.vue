@@ -99,9 +99,12 @@ export default Vue.extend({
   }
 
   .blog-entry-author-date-row {
-    padding-bottom: 1rem;
-    border-bottom: 6px groove gray;
     margin-bottom: 0.75em;
+  }
+
+  .blog-entry-body {
+    border-top: 6px groove gray;
+    padding-top: 1rem;
   }
 
   h4,
