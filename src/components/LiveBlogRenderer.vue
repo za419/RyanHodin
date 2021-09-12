@@ -47,35 +47,27 @@ export default Vue.extend({
 <style lang="scss">
 .host {
   width: 75%;
+  max-width: 1250px;
   margin: 7px auto;
 
-  h3 {
-    margin: 12px 0;
-  }
-
-  .meta-row {
+  .navigation {
     width: 100%;
-    display: flex;
-    margin-bottom: 1vh;
+    height: 30px;
+    position: relative;
 
-    input {
-      flex-grow: 1;
-
-      &:first-child {
-        margin-right: 1vh;
-      }
+    .q-icon {
+      margin: 0 -2px 2.5px;
     }
-  }
 
-  textarea {
-    width: 100%;
-    height: 20vh;
-  }
+    .previous {
+      position: absolute;
+      left: 0;
+    }
 
-  .results {
-    height: 750px;
-    width: 100%;
-    overflow-y: auto;
+    .next {
+      position: absolute;
+      right: 0;
+    }
   }
 
   a .q-icon {
@@ -146,7 +138,7 @@ export default Vue.extend({
 
 @media screen and (orientation: portrait) {
   .host {
-    width: 95%;
+    width: 85%;
   }
 }
 
@@ -167,6 +159,28 @@ export default Vue.extend({
 
     .blog-entry-date {
       float: right;
+    }
+  }
+}
+
+@media screen and (min-width: 1250px) {
+  .host {
+    font-size: 1.2em;
+
+    h3.blog-entry-title {
+      font-size: 3rem;
+    }
+
+    h4.blog-text-title {
+      font-size: 2.5rem;
+    }
+
+    h5.blog-text-subtitle {
+      font-size: 1.8rem;
+    }
+
+    h6.blog-text-minor-title {
+      font-size: 1.5rem;
     }
   }
 }

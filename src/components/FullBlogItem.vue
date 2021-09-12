@@ -62,6 +62,7 @@ export default Vue.extend({
 <style lang="scss">
 .host {
   width: 75%;
+  max-width: 1250px;
   margin: 7px auto;
 
   .navigation {
@@ -152,7 +153,7 @@ export default Vue.extend({
 
 @media screen and (orientation: portrait) {
   .host {
-    width: 95%;
+    width: 85%;
   }
 }
 
@@ -173,6 +174,28 @@ export default Vue.extend({
 
     .blog-entry-date {
       float: right;
+    }
+  }
+}
+
+@media screen and (min-width: 1250px) {
+  .host {
+    font-size: 1.2em;
+
+    h3.blog-entry-title {
+      font-size: 3rem;
+    }
+
+    h4.blog-text-title {
+      font-size: 2.5rem;
+    }
+
+    h5.blog-text-subtitle {
+      font-size: 1.8rem;
+    }
+
+    h6.blog-text-minor-title {
+      font-size: 1.5rem;
     }
   }
 }
