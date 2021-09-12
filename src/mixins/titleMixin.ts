@@ -4,9 +4,9 @@ import Vue from "vue";
 function getTitle(vm: Vue) {
   const title = (
     vm as Vue & {
-      title: string | (() => string);
+      pageTitle: string | (() => string);
     }
-  ).title;
+  ).pageTitle;
   if (title) {
     return typeof title === "function" ? title.call(vm) : title;
   }
