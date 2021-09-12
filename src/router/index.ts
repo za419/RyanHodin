@@ -22,6 +22,7 @@ const routes: Array<RouteConfig> = [
   {
     path: "/blog/:id",
     name: "Blog Item",
+    props: true,
     component: () =>
       import(/* webpackChunkName: "blog" */ "../views/BlogPost.vue"),
   },

@@ -6,29 +6,19 @@
 import blogRenderer from "../blogToHtml";
 import blogListing from "../../public/assets/blog/listing.json";
 
-const data = { text: "Loading..." };
-
-// Return the current HTML we should be displaying
-async function getContents(): Promise<string> {
-  await new Promise((r) => setTimeout(r, 3000));
-  // Get the blog item. If it doesn't exist, print an error.
-  const item = blogListing.find((blog) => blog.id === 1);
-  if (!item) {
-    return '<div class="error">Blog with id 0 does not exist.</div>';
-  }
-
-  const result = await blogRenderer(item);
-
-  return result;
-}
-
-// When we can get the contents downloaded, place them in the component.
-getContents().then((text) => (data.text = text));
-
 export default {
+  props: { id: { type: Number, required: true } },
   name: "FullBlogItem",
-  data: (): Record<string, unknown> => {
-    return data;
+  asyncComputed: {
+    text: async function (): Promise<string> {
+      // Get the blog item. If it doesn't exist, print an error.
+      const item = blogListing.find((blog) => blog.id === this.id);
+      if (!item) {
+        return `<div class="error">Blog with id ${this.id} does not exist.</div>`;
+      }
+
+      return await blogRenderer(item);
+    },
   },
 };
 </script>
