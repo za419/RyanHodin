@@ -52,6 +52,15 @@
             <q-item-label caption>Subtitle here</q-item-label>
           </q-item-section>
         </q-item>
+        <q-item clickable tag="router-link" to="/blogdev">
+          <q-item-section avatar>
+            <q-icon name="code" />
+          </q-item-section>
+          <q-item-section>
+            <q-item-label>Blog Renderer</q-item-label>
+            <q-item-label caption>Live rendering of blog text</q-item-label>
+          </q-item-section>
+        </q-item>
       </q-list>
     </q-drawer>
 
