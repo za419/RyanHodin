@@ -2,11 +2,19 @@
   <div class="host">
     <div class="header" v-html="contents.header"></div>
     <div class="navigation" v-if="navigation">
-      <div class="previous">
-        <q-icon name="arrow_left" color="green" size="25px" /> Older
+      <div class="previous" v-if="lastID != null">
+        <router-link :to="'/blog/' + lastID"
+          ><q-icon
+            name="arrow_left"
+            color="green"
+            size="25px"
+          />Older</router-link
+        >
       </div>
-      <div class="next">
-        Newer <q-icon name="arrow_right" color="green" size="25px" />
+      <div class="next" v-if="nextID != null">
+        <router-link :to="'/blog/' + nextID"
+          >Newer<q-icon name="arrow_right" color="green" size="25px"
+        /></router-link>
       </div>
     </div>
     <div class="body" v-html="contents.body || 'Loading...'"></div>
@@ -38,6 +46,16 @@ export default Vue.extend({
       return await blogRenderer(item);
     },
   },
+  computed: {
+    lastID: function (): number | null {
+      const minID = Math.min(...blogListing.map((item) => item.id));
+      return this.id === minID ? null : this.id - 1;
+    },
+    nextID: function (): number | null {
+      const maxID = Math.max(...blogListing.map((item) => item.id));
+      return this.id === maxID ? null : this.id + 1;
+    },
+  },
 });
 </script>
 
@@ -52,7 +70,7 @@ export default Vue.extend({
     position: relative;
 
     .q-icon {
-      margin: 0 -7px 2.5px;
+      margin: 0 -2px 2.5px;
     }
 
     .previous {
