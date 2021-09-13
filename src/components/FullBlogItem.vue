@@ -62,7 +62,11 @@ export default Vue.extend({
   methods: {
     pageTitle: function (): string {
       if (this.currentListing) {
-        return this.currentListing.title + " - " + this.currentListing.author;
+        return (
+          this.currentListing.title +
+          " - " +
+          this.currentListing.author
+        ).replaceAll("&nbsp;", " ");
       }
       return "Blog item viewer - Ryan Hodin";
     },
@@ -74,7 +78,7 @@ export default Vue.extend({
           this.currentListing.subtitle +
           ", by " +
           this.currentListing.author
-        );
+        ).replaceAll("&nbsp;", " ");
       }
       return "Renders posts written in the custom blogpost language created for this website by Ryan Hodin";
     },
