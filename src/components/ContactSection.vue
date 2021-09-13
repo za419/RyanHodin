@@ -2,26 +2,40 @@
   <div class="host">
     <div class="left">
       <a v-bind:href="'tel:' + phoneNumber"
-        ><q-icon name="phone" />{{ phoneNumber }}</a
+        ><q-icon name="phone" /><span class="underline">{{
+          phoneNumber
+        }}</span></a
       >
     </div>
     <div class="right">
-      <a v-bind:href="'mailto:' + email"><q-icon name="mail" />{{ email }}</a>
+      <a v-bind:href="'mailto:' + email"
+        ><q-icon name="mail" /><span class="underline">{{ email }}</span></a
+      >
     </div>
     <div class="left">
-      <a v-bind:href="discordURL"><q-icon name="fab fa-discord" />za419#0014</a>
+      <a v-bind:href="discordURL"
+        ><q-icon name="fab fa-discord" /><span class="underline"
+          >za419#0014</span
+        ></a
+      >
     </div>
     <div class="right">
-      <a v-bind:href="githubURL"><q-icon name="fab fa-github" />za419</a>
+      <a v-bind:href="githubURL"
+        ><q-icon name="fab fa-github" /><span class="underline">za419</span></a
+      >
     </div>
     <div class="left">
       <a v-bind:href="facebookURL"
-        ><q-icon name="fab fa-facebook" />Ryan Hodin</a
+        ><q-icon name="fab fa-facebook" /><span class="underline"
+          >Ryan Hodin</span
+        ></a
       >
     </div>
     <div class="right">
       <a v-bind:href="linkedinURL"
-        ><q-icon name="fab fa-linkedin" />Ryan Hodin</a
+        ><q-icon name="fab fa-linkedin" /><span class="underline"
+          >Ryan Hodin</span
+        ></a
       >
     </div>
   </div>
@@ -48,8 +62,16 @@ export default {
   width: 500px;
   margin: 7px 5%;
 
-  a .q-icon {
-    color: black;
+  a {
+    text-decoration: none;
+
+    .underline {
+      text-decoration: underline;
+    }
+
+    .q-icon {
+      color: black;
+    }
   }
 }
 .left {

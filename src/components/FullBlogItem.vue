@@ -3,17 +3,17 @@
     <div class="header" v-html="contents.header"></div>
     <div class="navigation" v-if="navigationRoot != null">
       <div class="previous" v-if="lastID != null">
-        <router-link :to="navigationRoot + lastID"
-          ><q-icon
-            name="arrow_left"
-            color="green"
-            size="25px"
-          />Older</router-link
+        <router-link class="no-underline" :to="navigationRoot + lastID"
+          ><q-icon name="arrow_left" color="green" size="25px" /><span
+            class="underline"
+            >Older</span
+          ></router-link
         >
       </div>
       <div class="next" v-if="nextID != null">
-        <router-link :to="navigationRoot + nextID"
-          >Newer<q-icon name="arrow_right" color="green" size="25px"
+        <router-link class="no-underline" :to="navigationRoot + nextID"
+          ><span class="underline">Newer</span
+          ><q-icon name="arrow_right" color="green" size="25px"
         /></router-link>
       </div>
     </div>
@@ -108,8 +108,12 @@ export default Vue.extend({
     }
   }
 
-  a .q-icon {
-    color: black;
+  .no-underline {
+    text-decoration: none;
+  }
+
+  .underline {
+    text-decoration: underline;
   }
 
   p {
