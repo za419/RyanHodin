@@ -69,6 +69,8 @@ export default Vue.extend({
   data(): Record<string, string> {
     return {
       pageTitle: "About Ryan Hodin",
+      pageDescription:
+        "A small bit of information about Ryan Hodin and this site",
     };
   },
 });

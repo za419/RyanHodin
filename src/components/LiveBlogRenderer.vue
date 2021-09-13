@@ -29,6 +29,8 @@ export default Vue.extend({
       subtitle: "",
       source: "",
       pageTitle: "Live renderer for blog posts - Ryan Hodin",
+      pageDescription:
+        "Editable live preview in the custom blogpost language created for this website by Ryan Hodin",
     };
   },
   computed: {

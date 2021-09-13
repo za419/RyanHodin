@@ -66,6 +66,18 @@ export default Vue.extend({
       }
       return "Blog item viewer - Ryan Hodin";
     },
+    pageDescription: function (): string {
+      if (this.currentListing) {
+        return (
+          this.currentListing.title +
+          ": " +
+          this.currentListing.subtitle +
+          ", by " +
+          this.currentListing.author
+        );
+      }
+      return "Renders posts written in the custom blogpost language created for this website by Ryan Hodin";
+    },
   },
 });
 </script>
