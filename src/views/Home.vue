@@ -10,5 +10,6 @@ import { Component, Vue } from "vue-property-decorator";
 })
 export default class Home extends Vue {
   pageTitle = "Ryan Hodin";
+  pageDescription = "The personal website of a programmer named Ryan Hodin";
 }
 </script>

@@ -3,15 +3,16 @@ import AsyncComputed from "vue-async-computed";
 import App from "./App.vue";
 import router from "./router";
 import FullBlogItem from "./components/FullBlogItem.vue";
-import titleMixin from "./mixins/titleMixin";
 import "./quasar";
+import { DescriptionMixin, TitleMixin } from "./mixins/metaMixins";
 
 Vue.config.productionTip = false;
 
 Vue.use(AsyncComputed);
 
 Vue.component("FullBlogItem", FullBlogItem);
-Vue.mixin(titleMixin);
+Vue.mixin(TitleMixin);
+Vue.mixin(DescriptionMixin);
 
 new Vue({
   router,
