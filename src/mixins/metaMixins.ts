@@ -13,7 +13,7 @@ function getTitle(vm: Vue) {
 }
 
 export const TitleMixin = Vue.extend({
-  created() {
+  updated() {
     const title = getTitle(this);
     if (title) {
       document.title = title;
@@ -32,7 +32,7 @@ function getDescription(vm: Vue) {
 }
 
 export const DescriptionMixin = Vue.extend({
-  created() {
+  updated() {
     const description = getDescription(this);
     if (description) {
       const metaDescription = document.querySelector(
