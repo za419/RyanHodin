@@ -13,11 +13,19 @@ function getTitle(vm: Vue) {
 }
 
 export const TitleMixin = Vue.extend({
+  methods: {
+    updateTitle() {
+      const title = getTitle(this);
+      if (title) {
+        document.title = title;
+      }
+    },
+  },
+  created() {
+    this.updateTitle();
+  },
   updated() {
-    const title = getTitle(this);
-    if (title) {
-      document.title = title;
-    }
+    this.updateTitle();
   },
 });
 
@@ -32,13 +40,21 @@ function getDescription(vm: Vue) {
 }
 
 export const DescriptionMixin = Vue.extend({
+  methods: {
+    updateDescription() {
+      const description = getDescription(this);
+      if (description) {
+        const metaDescription = document.querySelector(
+          'meta[name="description"]'
+        ) as Element & { content: string };
+        metaDescription.content = description;
+      }
+    },
+  },
+  created() {
+    this.updateDescription();
+  },
   updated() {
-    const description = getDescription(this);
-    if (description) {
-      const metaDescription = document.querySelector(
-        'meta[name="description"]'
-      ) as Element & { content: string };
-      metaDescription.content = description;
-    }
+    this.updateDescription();
   },
 });
