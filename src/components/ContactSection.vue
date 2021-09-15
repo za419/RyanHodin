@@ -59,8 +59,8 @@ export default {
 
 <style lang="scss">
 .contact-section-root {
-  width: 66%;
-  max-width: 500px;
+  width: 80%;
+  max-width: 1500px;
   margin: 7px auto;
   display: grid;
   gap: 0;
