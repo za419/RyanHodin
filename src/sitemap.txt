@@ -1,5 +1,3 @@
 https://za419.github.io/
 https://za419.github.io/#/about
 https://za419.github.io/#/blogdev
-https://za419.github.io/#/blog/0
-https://za419.github.io/#/blog/1
