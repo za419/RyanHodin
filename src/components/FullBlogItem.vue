@@ -174,6 +174,10 @@ export default Vue.extend({
       margin-left: 2px;
     }
   }
+
+  a.blog-text-link {
+    text-decoration: underline;
+  }
 }
 .left {
   float: left;
