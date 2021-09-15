@@ -88,4 +88,11 @@ export default {
 };
 </script>
 
-<style lang="scss"></style>
+<style lang="scss">
+.left {
+  float: left;
+}
+.right {
+  margin-left: 300px;
+}
+</style>

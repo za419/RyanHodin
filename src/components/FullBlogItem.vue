@@ -1,5 +1,5 @@
 <template>
-  <div class="host">
+  <div class="full-blog-item-root">
     <div class="header" v-html="contents.header"></div>
     <div class="navigation" v-if="navigationRoot != null">
       <div class="previous" v-if="lastID != null">
@@ -87,7 +87,7 @@ export default Vue.extend({
 </script>
 
 <style lang="scss">
-.host {
+.full-blog-item-root {
   width: 75%;
   max-width: 1250px;
   margin: 7px auto;
@@ -179,42 +179,38 @@ export default Vue.extend({
     text-decoration: underline;
   }
 }
-.left {
-  float: left;
-}
-.right {
-  margin-left: 300px;
-}
 
 @media screen and (orientation: portrait) {
-  .host {
+  .full-blog-item-root {
     width: 85%;
   }
 }
 
 @media screen and (max-width: 1100px) {
-  .host h2.blog-entry-title {
+  .full-blog-item-root h2.blog-entry-title {
     font-size: 2.5rem;
     line-height: 2.5rem;
   }
 }
 
 @media screen and (min-width: 750px) {
-  .blog-entry-author-date-row {
-    padding-bottom: 0.5rem;
+  .full-blog-item-root {
+    .blog-entry-author-date-row {
+      padding-bottom: 0.5rem;
 
-    .blog-entry-author {
-      display: inline-block;
-    }
+      .blog-entry-author {
+        display: inline-block;
+      }
 
-    .blog-entry-date {
-      float: right;
+      .blog-entry-date {
+        float: right;
+      }
     }
   }
 }
 
 @media screen and (min-width: 1250px) {
-  .host {
+  .full-blog-item-root {
     font-size: 1.2em;
 
     h3.blog-entry-title {

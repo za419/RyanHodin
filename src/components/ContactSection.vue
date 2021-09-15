@@ -1,5 +1,5 @@
 <template>
-  <div class="host">
+  <div class="contact-section-root">
     <div class="left">
       <a v-bind:href="'tel:' + phoneNumber"
         ><q-icon name="phone" /><span class="underline">{{
@@ -58,7 +58,7 @@ export default {
 </script>
 
 <style lang="scss">
-.host {
+.contact-section-root {
   width: 500px;
   margin: 7px 5%;
 
@@ -73,11 +73,5 @@ export default {
       color: black;
     }
   }
-}
-.left {
-  float: left;
-}
-.right {
-  margin-left: 300px;
 }
 </style>
