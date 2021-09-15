@@ -43,15 +43,6 @@
             >
           </q-item-section>
         </q-item>
-        <q-item clickable tag="router-link" to="/blog/0">
-          <q-item-section avatar>
-            <q-icon name="rss_feed" />
-          </q-item-section>
-          <q-item-section>
-            <q-item-label>Blog Article 0</q-item-label>
-            <q-item-label caption>Subtitle here</q-item-label>
-          </q-item-section>
-        </q-item>
         <q-item clickable tag="router-link" to="/blogdev">
           <q-item-section avatar>
             <q-icon name="code" />
@@ -61,6 +52,24 @@
             <q-item-label caption>Live rendering of blog text</q-item-label>
           </q-item-section>
         </q-item>
+        <q-expansion-item expand-separator icon="rss_feed" label="Blog Posts">
+          <q-list>
+            <q-item
+              v-for="post in blogListing"
+              :key="post.id"
+              clickable
+              tag="router-link"
+              :to="'/blog/' + post.id"
+            >
+              <!-- Empty avatar for alignment - This makes this clearly a submenu. -->
+              <q-item-section avatar></q-item-section>
+              <q-item-section>
+                <q-item-label>{{ post.title }}</q-item-label>
+                <q-item-label caption>{{ post.subtitle }}</q-item-label>
+              </q-item-section>
+            </q-item>
+          </q-list>
+        </q-expansion-item>
       </q-list>
     </q-drawer>
 
@@ -74,6 +83,7 @@
 
 <script lang="ts">
 import ContactSection from "@/components/ContactSection.vue";
+import blogListing from "../public/assets/blog/listing.json";
 
 export default {
   name: "LayoutDefault",
@@ -83,6 +93,16 @@ export default {
   data(): Record<string, unknown> {
     return {
       leftDrawerOpen: false,
+      blogListing: blogListing.map((post) => {
+        const htmlTags = /<.+?>/g;
+        return {
+          id: post.id,
+          title: post.title.replaceAll("&nbsp;", " "),
+          subtitle: post.subtitle
+            .replaceAll("&nbsp;", " ")
+            .replaceAll(htmlTags, ""),
+        };
+      }),
     };
   },
 };
