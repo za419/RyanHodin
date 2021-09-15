@@ -24,7 +24,7 @@ Honestly, I'm not worrying about most of these questions. I'm just writing stuff
 
 Like I said, the whole point of this is so I can try out building the tech around it -- The renderer for this format is the meat behind why I'm making this.
 
-Which brings us to points like this --link /blog/0 "link" "You probably don't care enough to click this." link--
+Which brings us to points like this --link /#/blog/0 "link" "You probably don't care enough to click this." link--
 
 Why did I just link you back to where you were? Because I wanted to have something to link to, and nothing else seemed appropriate.
 
