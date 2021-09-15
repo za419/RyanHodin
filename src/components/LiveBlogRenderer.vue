@@ -1,5 +1,5 @@
 <template>
-  <div class="full-blog-item-root">
+  <div class="full-blog-item-root live-blog-preview-root">
     <h3>Live Blog Post Preview</h3>
     <div class="meta-row">
       <input type="text" v-model="title" placeholder="Post title" />
@@ -47,4 +47,35 @@ export default Vue.extend({
 });
 </script>
 
-<style lang="scss"></style>
+<style lang="scss">
+.live-blog-preview-root {
+  h3 {
+    margin: 12px 0;
+  }
+
+  .meta-row {
+    width: 100%;
+    display: flex;
+    margin-bottom: 1vh;
+
+    input {
+      flex-grow: 1;
+
+      &:first-child {
+        margin-right: 1vh;
+      }
+    }
+  }
+
+  textarea {
+    width: 100%;
+    height: 20vh;
+  }
+
+  .results {
+    height: 750px;
+    width: 100%;
+    overflow-y: auto;
+  }
+}
+</style>
