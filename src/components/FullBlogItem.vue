@@ -174,10 +174,6 @@ export default Vue.extend({
       margin-left: 2px;
     }
   }
-
-  a.blog-text-link {
-    text-decoration: underline;
-  }
 }
 
 @media screen and (orientation: portrait) {
