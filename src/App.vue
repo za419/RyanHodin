@@ -89,14 +89,6 @@ export default {
 </script>
 
 <style lang="scss">
-.left {
-  float: left;
-}
-
-.right {
-  margin-left: 300px;
-}
-
 .no-underline {
   text-decoration: none;
 }
