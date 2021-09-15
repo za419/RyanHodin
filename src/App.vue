@@ -92,7 +92,16 @@ export default {
 .left {
   float: left;
 }
+
 .right {
   margin-left: 300px;
+}
+
+.no-underline {
+  text-decoration: none;
+}
+
+.underline {
+  text-decoration: underline;
 }
 </style>

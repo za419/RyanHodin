@@ -112,14 +112,6 @@ export default Vue.extend({
     }
   }
 
-  .no-underline {
-    text-decoration: none;
-  }
-
-  .underline {
-    text-decoration: underline;
-  }
-
   p {
     margin-top: 1em;
   }

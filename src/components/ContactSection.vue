@@ -65,10 +65,6 @@ export default {
   a {
     text-decoration: none;
 
-    .underline {
-      text-decoration: underline;
-    }
-
     .q-icon {
       color: black;
     }
