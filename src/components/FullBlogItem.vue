@@ -72,13 +72,17 @@ export default Vue.extend({
     },
     pageDescription: function (): string {
       if (this.currentListing) {
+        const htmlTags = /<.+?>/g;
         return (
+          '"' +
           this.currentListing.title +
           ": " +
           this.currentListing.subtitle +
-          ", by " +
+          '", by ' +
           this.currentListing.author
-        ).replaceAll("&nbsp;", " ");
+        )
+          .replaceAll("&nbsp;", " ")
+          .replaceAll(htmlTags, "");
       }
       return "Renders posts written in the custom blogpost language created for this website by Ryan Hodin";
     },
