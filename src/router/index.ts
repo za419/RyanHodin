@@ -2,6 +2,7 @@ import Vue from "vue";
 import VueRouter, { RouteConfig } from "vue-router";
 import Home from "../views/Home.vue";
 import About from "../views/About.vue";
+import PrivacyPolicy from "../views/PrivacyPolicy.vue";
 
 Vue.use(VueRouter);
 
@@ -15,6 +16,11 @@ const routes: Array<RouteConfig> = [
     path: "/about",
     name: "About",
     component: About,
+  },
+  {
+    path: "/privacy",
+    name: "Privacy Policy",
+    component: PrivacyPolicy,
   },
   {
     path: "/blog/:id",
