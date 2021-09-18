@@ -116,4 +116,17 @@ export default {
     }
   }
 }
+
+// If someone asked us to save space and we're on a small screen, hide the header
+@media screen and (max-width: 500px) {
+  .space-saver-500px-wide .contact-section-root .header {
+    display: none;
+  }
+}
+
+@media screen and (max-height: 100vh) {
+  .space-saver-100vh-tall .contact-section-root .header {
+    display: none;
+  }
+}
 </style>
