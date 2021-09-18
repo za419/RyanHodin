@@ -216,7 +216,11 @@ export default Vue.extend({
       // As if that's going to be often...
       lastUpdated: new Date(
         "Fri Sep 17 2021 19:36:42 GMT-0500"
-      ).toLocaleDateString(undefined, { dateStyle: "long" }),
+      ).toLocaleDateString(undefined, {
+        year: "numeric",
+        month: "long",
+        day: "2-digit",
+      }),
       pageTitle: "Privacy Policy - Ryan Hodin",
       pageDescription:
         "An in-depth description of all the personal information I don't collect.",
