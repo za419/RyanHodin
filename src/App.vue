@@ -70,6 +70,18 @@
             </q-item>
           </q-list>
         </q-expansion-item>
+        <q-item clickable tag="router-link" to="/privacy">
+          <q-item-section avatar>
+            <q-icon name="privacy_tip" />
+          </q-item-section>
+          <q-item-section>
+            <q-item-label>Privacy Policy</q-item-label>
+            <q-item-label caption
+              >I don't collect any information, but click here to read more
+              about it.</q-item-label
+            >
+          </q-item-section>
+        </q-item>
       </q-list>
     </q-drawer>
 
