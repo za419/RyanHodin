@@ -12,6 +12,11 @@ import Vue from "vue";
 export default Vue.extend({
   data(): Record<string, string> {
     return {
+      // Last updated datestamp: Update this whenever the policy changes
+      // As if that's going to be often...
+      lastUpdated: new Date(
+        "Fri Sep 17 2021 19:36:42 GMT-0500"
+      ).toLocaleDateString(undefined, { dateStyle: "long" }),
       pageTitle: "Privacy Policy - Ryan Hodin",
       pageDescription:
         "An in-depth description of all the personal information I don't collect.",
