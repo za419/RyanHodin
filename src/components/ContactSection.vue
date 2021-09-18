@@ -1,43 +1,47 @@
 <template>
   <div class="contact-section-root">
-    <h6 class="header">Contact Me</h6>
-    <div class="left first-row">
-      <a v-bind:href="'tel:' + phoneNumber"
-        ><q-icon name="phone" /><span class="underline">{{
-          phoneNumber
-        }}</span></a
-      >
-    </div>
-    <div class="right first-row">
-      <a v-bind:href="'mailto:' + email"
-        ><q-icon name="mail" /><span class="underline">{{ email }}</span></a
-      >
-    </div>
-    <div class="left second-row">
-      <a v-bind:href="discordURL"
-        ><q-icon name="fab fa-discord" /><span class="underline"
-          >za419#0014</span
-        ></a
-      >
-    </div>
-    <div class="right second-row">
-      <a v-bind:href="githubURL"
-        ><q-icon name="fab fa-github" /><span class="underline">za419</span></a
-      >
-    </div>
-    <div class="left third-row">
-      <a v-bind:href="facebookURL"
-        ><q-icon name="fab fa-facebook" /><span class="underline"
-          >Ryan Hodin</span
-        ></a
-      >
-    </div>
-    <div class="right third-row">
-      <a v-bind:href="linkedinURL"
-        ><q-icon name="fab fa-linkedin" /><span class="underline"
-          >Ryan Hodin</span
-        ></a
-      >
+    <h6 class="header">Contact&nbsp;Me</h6>
+    <div class="contact-info">
+      <div class="left first-row">
+        <a v-bind:href="'tel:' + phoneNumber"
+          ><q-icon name="phone" /><span class="underline">{{
+            phoneNumber
+          }}</span></a
+        >
+      </div>
+      <div class="right first-row">
+        <a v-bind:href="'mailto:' + email"
+          ><q-icon name="mail" /><span class="underline">{{ email }}</span></a
+        >
+      </div>
+      <div class="left second-row">
+        <a v-bind:href="discordURL"
+          ><q-icon name="fab fa-discord" /><span class="underline"
+            >za419#0014</span
+          ></a
+        >
+      </div>
+      <div class="right second-row">
+        <a v-bind:href="githubURL"
+          ><q-icon name="fab fa-github" /><span class="underline"
+            >za419</span
+          ></a
+        >
+      </div>
+      <div class="left third-row">
+        <a v-bind:href="facebookURL"
+          ><q-icon name="fab fa-facebook" /><span class="underline"
+            >Ryan Hodin</span
+          ></a
+        >
+      </div>
+      <div class="right third-row">
+        <a v-bind:href="linkedinURL"
+          ><q-icon name="fab fa-linkedin" /><span class="underline"
+            >Ryan Hodin</span
+          ></a
+        >
+      </div>
     </div>
   </div>
 </template>
@@ -63,44 +67,45 @@ export default {
   width: 80%;
   max-width: 1500px;
   margin: 7px auto;
-  display: grid;
-  gap: 0;
-  grid-template-columns: auto 1fr auto;
-  grid-template-areas:
-    ". header ."
-    "left . right"
-    "left . right"
-    "left . right";
-  align-items: center;
-  place-content: space-around;
 
   .header {
-    grid-area: header;
-    justify-self: center;
-    grid-row: 1;
+    width: 100%;
     margin: 0;
+    text-align: center;
   }
 
-  .left {
-    grid-area: left;
-    justify-self: start;
-  }
+  .contact-info {
+    display: grid;
+    gap: 0;
+    grid-template-columns: auto 1fr auto;
+    grid-template-areas:
+      "left . right"
+      "left . right"
+      "left . right";
+    align-items: center;
+    place-content: space-around;
 
-  .right {
-    grid-area: right;
-    justify-self: end;
-  }
+    .left {
+      grid-area: left;
+      justify-self: start;
+    }
 
-  .first-row {
-    grid-row: 2;
-  }
+    .right {
+      grid-area: right;
+      justify-self: end;
+    }
 
-  .second-row {
-    grid-row: 3;
-  }
+    .first-row {
+      grid-row: 1;
+    }
 
-  .third-row {
-    grid-row: 4;
+    .second-row {
+      grid-row: 2;
+    }
+
+    .third-row {
+      grid-row: 3;
+    }
   }
 
   a {
