@@ -1,5 +1,5 @@
 <template>
-  <div class="about">
+  <div class="about-root">
     <h4 class="title">About Ryan Hodin</h4>
     I'm not very good at writing about myself. Really.
     <p>
@@ -76,22 +76,22 @@ export default Vue.extend({
 });
 </script>
 
-<style>
-.about {
+<style lang="scss">
+.about-root {
   width: 80%;
   margin: auto;
-}
 
-p {
-  margin-top: 1em;
-}
+  p {
+    margin-top: 1em;
+  }
 
-h4.title,
-h5 .subtitle {
-  margin: 1em 0;
-}
+  h4.title,
+  h5 .subtitle {
+    margin: 1em 0;
+  }
 
-h4 {
-  margin: 1em 0;
+  h4 {
+    margin: 1em 0;
+  }
 }
 </style>
