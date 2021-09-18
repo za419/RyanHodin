@@ -1,5 +1,6 @@
 <template>
   <div class="contact-section-root">
+    <h6 class="header">Contact Me</h6>
     <div class="left first-row">
       <a v-bind:href="'tel:' + phoneNumber"
         ><q-icon name="phone" /><span class="underline">{{
@@ -66,11 +67,19 @@ export default {
   gap: 0;
   grid-template-columns: auto 1fr auto;
   grid-template-areas:
+    ". header ."
     "left . right"
     "left . right"
     "left . right";
   align-items: center;
   place-content: space-around;
+
+  .header {
+    grid-area: header;
+    justify-self: center;
+    grid-row: 1;
+    margin: 0;
+  }
 
   .left {
     grid-area: left;
@@ -83,15 +92,15 @@ export default {
   }
 
   .first-row {
-    grid-row: 1;
-  }
-
-  .second-row {
     grid-row: 2;
   }
 
-  .third-row {
+  .second-row {
     grid-row: 3;
+  }
+
+  .third-row {
+    grid-row: 4;
   }
 
   a {
