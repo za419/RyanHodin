@@ -73,6 +73,21 @@ export default Vue.extend({
         "A small bit of information about Ryan Hodin and this site",
     };
   },
+
+  // Lifecycle - While we're mounted, request other components to save space below 500px width or 100vh height
+  // (we have lots of content to display, and we want small screens to have room to display it)
+  mounted() {
+    document.body.classList.add(
+      "space-saver-500px-wide",
+      "space-saver-100vh-tall"
+    );
+  },
+  beforeDestroy() {
+    document.body.classList.remove(
+      "space-saver-500px-wide",
+      "space-saver-100vh-tall"
+    );
+  },
 });
 </script>
 
