@@ -78,7 +78,8 @@ export default Vue.extend({
 
 <style lang="scss">
 .about-root {
-  width: 80%;
+  width: 75%;
+  max-width: 1250px;
   margin: auto;
 
   p {
@@ -92,6 +93,18 @@ export default Vue.extend({
 
   h4 {
     margin: 1em 0;
+  }
+}
+
+@media screen and (orientation: portrait) {
+  .about-root {
+    width: 85%;
+  }
+}
+
+@media screen and (min-width: 1250px) {
+  .about-root {
+    font-size: 1.2em;
   }
 }
 </style>
