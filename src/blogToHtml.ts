@@ -457,6 +457,11 @@ const blogByIdCache: Record<number, BlogParts> = {};
 export default async function blogRenderer(
   description: BlogDescription
 ): Promise<BlogParts> {
+  // First, check if we've already cached this item, so we don't do anything unnecessary.
+  if (blogByIdCache[description.id]) {
+    return blogByIdCache[description.id];
+  }
+
   // Download the described blog entry file
   let text: string;
   try {
