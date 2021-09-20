@@ -12,12 +12,6 @@
         />
 
         <q-toolbar-title> Ryan Hodin </q-toolbar-title>
-
-        <!-- Hide this silly joke on portrait screens -->
-        <div class="no-portrait">
-          Software Engineer, fiction writer, lover extraordinaire, and
-          exaggerator
-        </div>
       </q-toolbar>
     </q-header>
 
@@ -128,11 +122,5 @@ export default {
 
 .underline {
   text-decoration: underline;
-}
-
-@media (orientation: portrait) {
-  .no-portrait {
-    display: none;
-  }
 }
 </style>
