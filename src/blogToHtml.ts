@@ -475,11 +475,15 @@ export default async function blogRenderer(
   }
 
   // And let the data-driven renderer do all the work
-  return blogDataRenderer(
+  const result = blogDataRenderer(
     description.title,
     description.subtitle,
     description.author,
     description.published,
     text
   );
+
+  // Insert the result into the cache.
+  blogByIdCache[description.id] = result;
+  return result;
 }
