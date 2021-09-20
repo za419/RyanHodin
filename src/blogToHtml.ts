@@ -1,6 +1,6 @@
 // This supports the conversion of blog files to renderable HTML.
 
-import { BlogDescription } from "./app.types";
+import { BlogDescription, BlogParts } from "./app.types";
 
 interface ConversionElement {
   start: string;
@@ -315,7 +315,7 @@ export function blogDataRenderer(
   author: string,
   published: string,
   text: string
-): { header: string; body: string } {
+): BlogParts {
   // Create "front matter"
   let header = "";
   header += "<h2 class='blog-entry-title'>" + title + "</h2>";
@@ -449,9 +449,14 @@ export function blogDataRenderer(
   return { header, body };
 }
 
+// Blog items probably don't get updated while we're looking at the page.
+// Therefore, this cache will store the renderered representation of blog items by their ID
+// This will allow us to skip a network roundtrip (the parsing time isn't that long)
+const blogByIdCache: Record<number, BlogParts> = {};
+
 export default async function blogRenderer(
   description: BlogDescription
-): Promise<{ header: string; body: string }> {
+): Promise<BlogParts> {
   // Download the described blog entry file
   let text: string;
   try {

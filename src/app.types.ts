@@ -9,3 +9,9 @@ export interface BlogDescription {
   author: string;
   published: string; // In any format parsable by JS Date (we'll reformat it for display)
 }
+
+// The type returned by all blog parsing functions
+export interface BlogParts {
+  header: string;
+  body: string;
+}
