@@ -322,9 +322,10 @@ function blogHeaderRenderer(
 
   // Now throw in the publication info
   header +=
-    "<div class='blog-entry-author-date-row'><div class='blog-entry-author'>Written By: ";
+    "<div class='blog-entry-author-date-row'><div class='blog-entry-author'><span class='blog-entry-author-text'>Written By: </span>";
   header += author;
-  header += "</div><div class='blog-entry-date'>Written on: ";
+  header +=
+    "</div><div class='blog-entry-date'><span class='blog-entry-date-text'>Written on: </span>";
 
   // The date in the listing could be in any format that Date can parse (for author's convenience)
   // For example, the test entry has its datestamp as formatted by Git showing the commit where I wrote it.
