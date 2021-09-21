@@ -308,14 +308,13 @@ const defaultConversions: ConversionElement[] = [
   },
 ];
 
-// Renders a blog item based on variables, rather than a file of contents
-export function blogDataRenderer(
+// Renders the HTML for a blog item header
+function blogHeaderRenderer(
   title: string,
   subtitle: string,
   author: string,
-  published: string,
-  text: string
-): BlogParts {
+  published: string
+): string {
   // Create "front matter"
   let header = "";
   header += "<h2 class='blog-entry-title'>" + title + "</h2>";
@@ -332,6 +331,19 @@ export function blogDataRenderer(
   // We should re-format it into a format the reader will like.
   header += new Date(published).toLocaleString();
   header += "</div></div>";
+  return header;
+}
+
+// Renders a blog item based on variables, rather than a file of contents
+export function blogDataRenderer(
+  title: string,
+  subtitle: string,
+  author: string,
+  published: string,
+  text: string
+): BlogParts {
+  // Get ourselves a header
+  const header = blogHeaderRenderer(title, subtitle, author, published);
 
   // Now, get started on the body.
   // Start by opening the tag (naturally)
@@ -486,4 +498,14 @@ export default async function blogRenderer(
   // Insert the result into the cache.
   blogByIdCache[description.id] = result;
   return result;
+}
+
+// Expose blog header rendering only through the interface of a BlogDescription
+export function blogHeader(description: BlogDescription): string {
+  return blogHeaderRenderer(
+    description.title,
+    description.subtitle,
+    description.author,
+    description.published
+  );
 }
