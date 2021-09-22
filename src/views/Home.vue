@@ -2,6 +2,33 @@
   <div class="home">
     <h1 class="home-title">Ryan Hodin</h1>
     <h2 class="home-subtitle">Welcome to my personal website</h2>
+    <p>
+      This is my personal website, full of generic content I wrote to have a
+      little fun and experiment with different web design technology than I've
+      used before.
+    </p>
+    <p>
+      Here, you can find a
+      <router-link tag="a" to="/privacy">Privacy Policy</router-link>, which
+      states all the various ways in which I don't collect your data, as I did
+      not even put in the work to make it possible to collect your data; A short
+      page with some more information
+      <router-link tag="a" to="/about">about me and about this site</router-link
+      >; A &quot;blog&quot; with a few articles I wrote, so I could write a
+      script to translate a markup language into HTML to be rendered as part of
+      this site; And a
+      <router-link tag="a" to="/blogdev"
+        >tool to render that markup live</router-link
+      >, since I made the language up myself and a tool to help me write it
+      comes in handy. Source code for this website is available
+      <a
+        href="https://github.com/za419/RyanHodin"
+        target="_blank"
+        title="Github source repository: za419/RyanHodin"
+        >on GitHub.</a
+      >
+    </p>
+    <p>I hope you enjoy visiting!</p>
     <div class="blog-preview-container">
       <h3 class="blog-preview-title">Blog</h3>
       <ul class="blog-preview-list">
