@@ -11,7 +11,11 @@
           icon="menu"
         />
 
-        <q-toolbar-title> Ryan Hodin </q-toolbar-title>
+        <q-toolbar-title
+          ><router-link tag="a" to="/" class="link-return-home">
+            Ryan Hodin
+          </router-link></q-toolbar-title
+        >
       </q-toolbar>
     </q-header>
 
@@ -116,11 +120,28 @@ export default {
 </script>
 
 <style lang="scss">
+@import "styles/quasar.variables.scss";
+
 .no-underline {
   text-decoration: none;
 }
 
 .underline {
   text-decoration: underline;
+}
+
+.q-toolbar__title a.link-return-home {
+  color: inherit;
+  text-decoration: none;
+  border-radius: 18px;
+  padding: 5px;
+
+  &:hover {
+    background-color: darken($color: $primary, $amount: 2.5);
+  }
+
+  &:active {
+    background-color: darken($color: $primary, $amount: 5);
+  }
 }
 </style>
