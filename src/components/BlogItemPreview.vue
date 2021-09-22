@@ -43,8 +43,9 @@ export default Vue.extend({
 
 <style lang="scss">
 .blog-item-preview-root {
-  padding: 8px;
-  height: 85px;
+  padding: 10px;
+  height: 90px;
+  width: 100%;
 
   h2.blog-entry-title {
     font-size: 1.2rem;
@@ -78,10 +79,11 @@ export default Vue.extend({
     text-decoration: none;
     position: relative;
     display: inline-block;
+    width: 100%;
 
     .go-to-arrow {
       position: absolute;
-      margin: 0 -15px;
+      margin: 0 -20px;
       right: 0;
       top: calc(50% - 15px);
     }
