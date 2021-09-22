@@ -61,6 +61,8 @@ export default Vue.extend({
   }
 
   .blog-entry-author-date-row {
+    font-weight: 300;
+
     .blog-entry-author {
       display: inline-block;
     }
