@@ -148,7 +148,16 @@ export default Vue.extend({
   }
 
   .blog-entry-author-date-row {
-    margin-bottom: 0.75em;
+    font-size: 1.2em;
+    padding-bottom: 0.5rem;
+
+    .blog-entry-author {
+      display: inline-block;
+    }
+
+    .blog-entry-date {
+      float: right;
+    }
   }
 
   .blog-entry-body {
@@ -200,18 +209,11 @@ export default Vue.extend({
   }
 }
 
-@media screen and (min-width: 750px) {
+@media screen and (max-width: 750px) {
   .full-blog-item-root {
-    .blog-entry-author-date-row {
-      padding-bottom: 0.5rem;
-
-      .blog-entry-author {
-        display: inline-block;
-      }
-
-      .blog-entry-date {
-        float: right;
-      }
+    .blog-entry-date-text,
+    .blog-entry-author-text {
+      display: none;
     }
   }
 }
