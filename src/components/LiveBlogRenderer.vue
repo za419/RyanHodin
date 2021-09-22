@@ -1,5 +1,5 @@
 <template>
-  <div class="full-blog-item-root live-blog-preview-root">
+  <div class="live-blog-preview-root">
     <h3>Live Blog Post Preview</h3>
     <div class="meta-row">
       <input type="text" v-model="title" placeholder="Post title" />
@@ -10,7 +10,7 @@
       v-model="source"
       placeholder="Post contents"
     ></textarea>
-    <div class="results">
+    <div class="results full-blog-item-root">
       <div class="result-header" v-html="contents.header"></div>
       <div class="result-body" v-html="contents.body"></div>
     </div>
