@@ -1,7 +1,9 @@
 <template>
   <div class="home">
+    <h1 class="home-title">Ryan Hodin</h1>
+    <h2 class="home-subtitle">Welcome to my personal website</h2>
     <div class="blog-preview-container">
-      <h2 class="blog-preview-title">Blog</h2>
+      <h3 class="blog-preview-title">Blog</h3>
       <ul class="blog-preview-list">
         <li v-for="id in blogIDs" :key="id" class="blog-preview-list-root">
           <BlogItemPreview :id="id" navigationRoot="/blog/" />
@@ -28,13 +30,27 @@ export default class Home extends Vue {
 
 <style lang="scss">
 .home {
+  width: 75%;
+  max-width: 1250px;
+  margin: 7px auto;
+
+  .home-title {
+    font-size: 4rem;
+    line-height: 4rem;
+  }
+
+  .home-subtitle {
+    font-size: 3rem;
+    line-height: 3rem;
+  }
+
   .blog-preview-container {
     display: inline-block;
 
     .blog-preview-title {
-      font-size: 2.5rem;
+      font-size: 2rem;
       font-weight: 600;
-      line-height: 2.5rem;
+      line-height: 2rem;
       text-align: center;
       margin-top: 0;
       margin-bottom: 0.5rem;
