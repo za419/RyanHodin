@@ -74,6 +74,14 @@ export default class Home extends Vue {
   .blog-preview-container {
     display: inline-block;
 
+    // Little trick to center this even though it's inline-block...
+    // First, scoot the div right by half the container width.
+    position: relative;
+    left: 50%;
+
+    // Then, scoot it left by half this element's width.
+    transform: translateX(-50%);
+
     .blog-preview-title {
       font-size: 2rem;
       font-weight: 600;
