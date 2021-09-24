@@ -64,6 +64,10 @@ export default Vue.extend({
 
 <style lang="scss">
 .live-blog-preview-root {
+  width: 85%;
+  max-width: 1250px;
+  margin: auto;
+
   h3 {
     margin: 12px 0;
   }
