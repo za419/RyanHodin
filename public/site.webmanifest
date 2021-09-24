@@ -1,0 +1,20 @@
+{
+  "name": "Ryan Hodin",
+  "short_name": "Ryan Hodin",
+  "icons": [
+    {
+      "src": "/assets/favicon/android-chrome-192x192.png",
+      "sizes": "192x192",
+      "type": "image/png"
+    },
+    {
+      "src": "/assets/favicon/android-chrome-512x512.png",
+      "sizes": "512x512",
+      "type": "image/png"
+    }
+  ],
+  "theme_color": "#01a167",
+  "background_color": "#ffffff",
+  "start_url": "https://za419.github.io/#/",
+  "display": "standalone"
+}
