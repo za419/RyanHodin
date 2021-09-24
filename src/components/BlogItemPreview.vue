@@ -91,4 +91,25 @@ export default Vue.extend({
     }
   }
 }
+
+@media (max-width: 500px) {
+  .blog-item-preview-root {
+    h2.blog-entry-title {
+      font-size: 1.1rem;
+      line-height: 1.1rem;
+      font-weight: 500;
+      margin: 0 0 5px 0;
+    }
+
+    h3.blog-entry-subtitle {
+      font-size: 1rem;
+      line-height: 1rem;
+      margin: 0 0 3px 0;
+    }
+
+    .blog-entry-author-date-row {
+      font-size: 0.9rem;
+    }
+  }
+}
 </style>
