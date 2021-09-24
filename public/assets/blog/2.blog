@@ -1,0 +1,31 @@
+It has now been three months since I started writing articles for this site.
+
+Granted, the vast majority of those three months have been horribly lackadaisical, and in reality pretty much everything you see on this site was done in September, but... Well, that's not the point, is it?
+
+Over the course of these last three months, I've learned a lot, at least with respects to this site, but I've also done a lot of thinking, a small part of which has had to do with philosophy -- And a piece smaller still of that has had to do with that one simple question: What does it truly mean to have a blog?
+
+95 days ago, I started the age in which this site actually had content in it with the words "I don't have a blog: Despite what this might look like." -- And, indeed, the purpose of this so--called "Blog" is not to share updates on my life, or anything useful like that: But to instead provide both a testbed and a purpose to my converter, which turns decorated plaintext into useful blog markup.
+
+But does that truly answer the question at hand?
+
+_____
+The Merriam--Webster English dictionary --link https://www.merriam-webster.com/dictionary/blog "defines 'Blog' as the following:" "Definition of Blog by the Merriam-Webster English dictionary" link--
+"1. /computers/ : a website that contains online personal reflections, comments, and often hyperlinks, videos, and photographs provided by the writer
+also : the contents of such a site"
+Or,
+"2. a regular feature appearing as part of an online publication that typically relates to a particular topic and consists of articles and personal commentary by one or more authors"
+
+And so we come to the crux of the issue. Does this set of articles satisfy that definition? Certainly, it would be difficult to describe *anything* on this site as "A regular feature"; But, this does contain comments and content provided by myself, as writer, consisting of a mixture of articles and personal commentary from me. And, ironically, this very article proves the satisfaction of the criteria of "personal reflections" -- After all, the reflection on whether I do, in fact, have a blog, is a reflection that is personal in nature.
+So, perhaps, it is the action of asking this question which has answered it: By asking whether I have a blog, I have created the circumstances by which I do, in fact, have one -- It was only in doubt until the moment I doubted it.
+
+Or, maybe that's incredibly stupid.
+
+_____
+# In retrospect
+During the process of creating this site, I learned many things -- And more than a few of those have had to do with this series of articles. Whether or not this constitutes a blog (The answer to that question is likely ambiguous and subjective enough that I have wasted my time by reflecting on it), it has given me a chance to practice some interesting string parsing technique, to make some decisions that were perhaps, in retrospect, made poorly (for example, the choice to use a single '--' to denote strikethrough and a double '----' to denote a literal hyphen -- Which is a decision which is annoying, and, perhaps, one I shall end up reversing in the near future), and to consider the intricacies of writing in my own syntax beyond simply imagining such an act.
+
+And, among other things, some things I would do differently.
+What, you ask?
+
+
+--image /assets/question-mark.svg "This time, the useless question mark image is an SVG, so it looks sharp on any screen size!" "?" image--
