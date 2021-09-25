@@ -101,7 +101,7 @@
             ><img
               class="other-project-image"
               loading="lazy"
-              src="/assets/hero-2.webp"
+              src="/assets/hero-1.webp"
               title="Hero: A toy Version Control System"
               alt="Screenshot of some partial self-hosting as a demo of Hero's capability and behavior"
           /></a>
@@ -194,6 +194,36 @@ export default class Home extends Vue {
         display: block;
       }
     }
+  }
+
+  .other-projects {
+    width: 100%;
+
+    .other-project {
+      width: 100%;
+      max-width: 1000px;
+      margin: auto;
+      border: 3px outset gray;
+      margin-bottom: 1em;
+
+      .other-project-image {
+        width: 100%;
+        margin: auto;
+        display: block;
+      }
+    }
+  }
+}
+
+@media (min-width: 750px) {
+  .home .other-project-caption {
+    font-size: 1.1em;
+  }
+}
+
+@media (min-width: 1000px) {
+  .home .other-project-caption {
+    font-size: 1.2em;
   }
 }
 </style>
