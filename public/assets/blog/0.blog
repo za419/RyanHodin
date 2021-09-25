@@ -18,7 +18,7 @@ Yes, this post is the test text for the generator. Yes, I am still including it 
 
 #Why?
 
---image /assets/question-mark.webp "This question mark is an image, only so I could test image embeds." "?" image--
+--image /assets/question-mark.png "This question mark is an image, only so I could test image embeds." "?" image--
 
 Honestly, I'm not worrying about most of these questions. I'm just writing stuff.
 
