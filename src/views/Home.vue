@@ -42,13 +42,15 @@
       <div class="other-projects">
         <figure class="other-project">
           <a href="https://cadenceradio.com/"
-            ><img
-              class="other-project-image"
-              loading="lazy"
-              src="/assets/CadenceRadio.webp"
-              title="Cadence Radio: A Rhythmic Experience"
-              alt="Screenshot of the Cadence Radio website"
-          /></a>
+            ><picture>
+              <source type="image/webp" srcset="/assets/CadenceRadio.webp" />
+              <img
+                class="other-project-image"
+                loading="lazy"
+                src="/assets/CadenceRadio.png"
+                title="Cadence Radio: A Rhythmic Experience"
+                alt="Screenshot of the Cadence Radio website" /></picture
+          ></a>
           <figcaption class="other-project-caption">
             <a href="https://cadenceradio.com/">Cadence Radio</a>, a project by
             <a href="https://kenellorando.com">Ken Ellorando</a>, is an internet
@@ -59,13 +61,17 @@
         </figure>
         <figure class="other-project">
           <a href="https://github.com/za419/Cadencebot/"
-            ><img
-              class="other-project-image"
-              loading="lazy"
-              src="/assets/CadenceBot-large.webp"
-              title="CadenceBot: Discord bot for Cadence Radio"
-              alt="Screenshot of some interaction with CadenceBot"
-          /></a>
+            ><picture
+              ><source
+                type="image/webp"
+                srcset="/assets/CadenceBot-large.webp" />
+              <img
+                class="other-project-image"
+                loading="lazy"
+                src="/assets/CadenceBot-large.png"
+                title="CadenceBot: Discord bot for Cadence Radio"
+                alt="Screenshot of some interaction with CadenceBot" /></picture
+          ></a>
           <figcaption class="other-project-caption">
             <a href="https://github.com/za419/Cadencebot/">CadenceBot</a> is a
             Discord bot which allows for control and playback of Cadence Radio
@@ -78,13 +84,15 @@
         </figure>
         <figure class="other-project">
           <a href="https://github.com/za419/reddit-news/"
-            ><img
-              class="other-project-image"
-              loading="lazy"
-              src="/assets/reddit-news.webp"
-              title="Reddit News: EECS 338 project for Northwestern University"
-              alt="Screenshot of analysis results for an /r/news post about Joe Biden's victory in the US Presidential Election of 2020"
-          /></a>
+            ><picture
+              ><source type="image/webp" srcset="/assets/reddit-news.webp" />
+              <img
+                class="other-project-image"
+                loading="lazy"
+                src="/assets/reddit-news.png"
+                title="Reddit News: EECS 338 project for Northwestern University"
+                alt="Screenshot of analysis results for an /r/news post about Joe Biden's victory in the US Presidential Election of 2020" /></picture
+          ></a>
           <figcaption class="other-project-caption">
             <a href="https://github.com/za419/reddit-news/">Reddit News</a> was
             a group project for EECS 338 at Northwestern University, wherein I
@@ -98,13 +106,15 @@
         </figure>
         <figure class="other-project">
           <a href="https://github.com/za419/Hero/"
-            ><img
-              class="other-project-image"
-              loading="lazy"
-              src="/assets/hero-1.webp"
-              title="Hero: A toy Version Control System"
-              alt="Screenshot of some partial self-hosting as a demo of Hero's capability and behavior"
-          /></a>
+            ><picture
+              ><source type="image/webp" srcset="/assets/hero-1.webp" />
+              <img
+                class="other-project-image"
+                loading="lazy"
+                src="/assets/hero-1.png"
+                title="Hero: A toy Version Control System"
+                alt="Screenshot of some partial self-hosting as a demo of Hero's capability and behavior" /></picture
+          ></a>
           <figcaption class="other-project-caption">
             <a href="https://github.com/za419/Hero/">Hero</a> (named for
             Herodotus) is a toy
