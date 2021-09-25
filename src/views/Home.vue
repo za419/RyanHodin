@@ -37,6 +37,94 @@
         </li>
       </ul>
     </div>
+    <div class="other-projects-container">
+      <h3 class="other-projects-title">Some other things I've worked on</h3>
+      <div class="other-projects">
+        <figure class="other-project">
+          <a href="https://cadenceradio.com/"
+            ><img
+              class="other-project-image"
+              loading="lazy"
+              src="/assets/CadenceRadio.webp"
+              title="Cadence Radio: A Rhythmic Experience"
+              alt="Screenshot of the Cadence Radio website"
+          /></a>
+          <figcaption class="other-project-caption">
+            <a href="https://cadenceradio.com/">Cadence Radio</a>, a project by
+            <a href="https://kenellorando.com">Ken Ellorando</a>, is an internet
+            radio with an interface allowing multiple themes and user-provided
+            song requests. It has been through several redesigns and rewrites,
+            each of which I have contributed to in varying amounts.
+          </figcaption>
+        </figure>
+        <figure class="other-project">
+          <a href="https://github.com/za419/Cadencebot/"
+            ><img
+              class="other-project-image"
+              loading="lazy"
+              src="/assets/CadenceBot-large.webp"
+              title="CadenceBot: Discord bot for Cadence Radio"
+              alt="Screenshot of some interaction with CadenceBot"
+          /></a>
+          <figcaption class="other-project-caption">
+            <a href="https://github.com/za419/Cadencebot/">CadenceBot</a> is a
+            Discord bot which allows for control and playback of Cadence Radio
+            within a Discord server. It can play the stream, announce what song
+            is playing, submit requests for songs, and it supports several
+            unrelated commands specific to Discord. I manage the project, and I
+            have contributed the vast majority of the code for it, in addition
+            to hosting the production instance.
+          </figcaption>
+        </figure>
+        <figure class="other-project">
+          <a href="https://github.com/za419/reddit-news/"
+            ><img
+              class="other-project-image"
+              loading="lazy"
+              src="/assets/reddit-news.webp"
+              title="Reddit News: EECS 338 project for Northwestern University"
+              alt="Screenshot of analysis results for an /r/news post about Joe Biden's victory in the US Presidential Election of 2020"
+          /></a>
+          <figcaption class="other-project-caption">
+            <a href="https://github.com/za419/reddit-news/">Reddit News</a> was
+            a group project for EECS 338 at Northwestern University, wherein I
+            wrote the majority of the code. The goal of the project was to use
+            natural language processing to compare keywords found in an article
+            to those found in the comments to a corresponding Reddit post - The
+            concept being that it would be possible to have a sense of the
+            progression of the conversation about the given topic. It was not
+            developed beyond presenting lists of those keywords.
+          </figcaption>
+        </figure>
+        <figure class="other-project">
+          <a href="https://github.com/za419/Hero/"
+            ><img
+              class="other-project-image"
+              loading="lazy"
+              src="/assets/hero-2.webp"
+              title="Hero: A toy Version Control System"
+              alt="Screenshot of some partial self-hosting as a demo of Hero's capability and behavior"
+          /></a>
+          <figcaption class="other-project-caption">
+            <a href="https://github.com/za419/Hero/">Hero</a> (named for
+            Herodotus) is a toy
+            <a
+              href="https://en.wikipedia.org/wiki/Version_control"
+              title="Wikipedia article for version control"
+              >Version Control System</a
+            >
+            that I wrote, largely out of boredom. I haven't developed it enough
+            to be used seriously, but Hero supports a full minimal set of
+            features - Commit-based tracking of previous versions of a file
+            structure, with timestamps and descriptions attached, generation of
+            a log of all previous versions, and checkout of a previous version
+            by its hash. There is some ability to create a branch within it, but
+            branches cannot currently be named or merged back into the primary
+            branch.
+          </figcaption>
+        </figure>
+      </div>
+    </div>
   </div>
 </template>
 
