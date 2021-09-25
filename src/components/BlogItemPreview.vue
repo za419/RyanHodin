@@ -43,8 +43,8 @@ export default Vue.extend({
 
 <style lang="scss">
 .blog-item-preview-root {
-  padding: 10px;
-  height: 90px;
+  padding-right: 10px;
+  height: 100px;
   width: 100%;
 
   h2.blog-entry-title {
@@ -92,7 +92,7 @@ export default Vue.extend({
   }
 }
 
-@media (max-width: 500px) {
+@media (max-width: 550px) {
   .blog-item-preview-root {
     h2.blog-entry-title {
       font-size: 1.1rem;

@@ -190,7 +190,7 @@ export default class Home extends Vue {
 
       li.blog-preview-list-root {
         width: 100%;
-        height: 90px;
+        height: 100px;
         display: block;
       }
     }
