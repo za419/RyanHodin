@@ -7,6 +7,7 @@ interface ConversionElement {
   end: string;
   open: string;
   close: string;
+  description: string | null;
   processContents?: (contents: string) => string;
 }
 
@@ -32,72 +33,90 @@ const defaultConversions: ConversionElement[] = [
     end: "/",
     open: "<em>",
     close: "</em>",
+    description:
+      "Emphasizes the enclosed text (this is usually displayed as italics)",
   },
   {
     start: "*",
     end: "*",
     open: "<strong>",
     close: "</strong>",
+    description:
+      "Strengthens the enclosed text (this is usually displayed as bold text)",
   },
   {
     start: "--",
     end: "--",
     open: "<s>",
     close: "</s>",
+    description: "Strikes through the enclosed text",
   },
   {
     start: "_",
     end: "_",
     open: "<u>",
     close: "</u>",
+    description: "Underlines the enclosed text",
   },
   {
     start: "^",
     end: "^",
     open: "<sup>",
     close: "</sup>",
+    description: "Places the enclosed text in superscript",
   },
   {
     start: "_____",
     end: "\n",
     open: "<hr>",
     close: "",
+    description: "Places a horizontal line across the page",
   },
   {
     start: "\n\n",
     end: "",
     open: "<p>",
     close: "",
+    description: null,
   },
   {
     start: "\n",
     end: "",
     open: "<br>",
     close: "",
+    description: null,
   },
   {
     start: "#",
     end: "\n",
     open: '<h4 class="blog-text-title">',
     close: "</h4>",
+    description: "Makes the rest of the line a top-level header",
   },
   {
     start: "##",
     end: "\n",
     open: '<h5 class="blog-text-subtitle">',
     close: "</h5>",
+    description: "Makes the rest of the line a second-level header",
   },
   {
     start: "###",
     end: "\n",
     open: '<h6 class="blog-text-minor-title">',
     close: "</h6>",
+    description: "Makes the rest of the line a third-level header",
   },
   {
     start: "--link ",
     end: " link--",
     open: "<a class='blog-text-link' ",
     close: "</a>",
+    description: `Creates a text link.
+    Usage: --link <target> "<text>" "<title>" link--
+      <target> is the URL to link to
+      <text> (note enclosure in quotes) is the text that will be linked
+      <title> (note enclosure in quotes) will be used as "hover-over" text for the link`,
     processContents: (properties) => {
       // Properties for a link has the following spec:
       // href "text" "title"
@@ -177,6 +196,11 @@ const defaultConversions: ConversionElement[] = [
     end: " image--",
     open: "<figure class='blog-text-image-container'><img class='blog-text-image' loading='lazy' ",
     close: "</figure>",
+    description: `Insert an image into the page.
+    Usage: --image <source> "<title>" "<alt-text>" image--
+      <source> is the URL of the image you want to display
+      <title> (note enclosure in quotes) will be displayed both as hover-over text and below the image
+      <alt-text> (note enclosure in quotes) will be displayed if the image fails to load, or for text-to-speech readers`,
     processContents: (properties) => {
       // Properties for a link has the following spec:
       // src "title-and-caption" "alt-text"
@@ -263,6 +287,19 @@ const defaultConversions: ConversionElement[] = [
     end: "\nlist--",
     open: "",
     close: "",
+    description: `Create a list of items. Note that this must appear at the start of a line.
+    Usage:
+    --list <type>
+    <items>
+    list--
+      <type> describes what style of list to use. This can be one of:
+        "ordered" (items are numbered)
+        "unordered" (items are noted with bullet points)
+      <items> is the list of contents to be presented, one per line. For example:
+        First item
+        Second item
+        Third item
+      There is no minimum number of items for this list construct.`,
     processContents: (spec) => {
       // A list spec has the following structure:
       // --list <type>
