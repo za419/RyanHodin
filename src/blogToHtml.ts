@@ -40,16 +40,10 @@ const defaultConversions: ConversionElement[] = [
     close: "</strong>",
   },
   {
-    start: "-",
-    end: "-",
+    start: "--",
+    end: "--",
     open: "<s>",
     close: "</s>",
-  },
-  {
-    start: "--",
-    end: "",
-    open: "-",
-    close: "",
   },
   {
     start: "_",
