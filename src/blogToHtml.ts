@@ -7,6 +7,7 @@ interface ConversionElement {
   end: string;
   open: string;
   close: string;
+  exampleContents: string | ((conversion: ConversionElement) => string) | null;
   description: string | null;
   processContents?: (contents: string) => string;
 }
@@ -33,6 +34,7 @@ const defaultConversions: ConversionElement[] = [
     end: "/",
     open: "<em>",
     close: "</em>",
+    exampleContents: "emphasized",
     description:
       "Emphasizes the enclosed text (this is usually displayed as italics)",
   },
@@ -41,6 +43,7 @@ const defaultConversions: ConversionElement[] = [
     end: "*",
     open: "<strong>",
     close: "</strong>",
+    exampleContents: "strong text",
     description:
       "Strengthens the enclosed text (this is usually displayed as bold text)",
   },
@@ -49,6 +52,7 @@ const defaultConversions: ConversionElement[] = [
     end: "--",
     open: "<s>",
     close: "</s>",
+    exampleContents: "striked-through",
     description: "Strikes through the enclosed text",
   },
   {
@@ -56,6 +60,7 @@ const defaultConversions: ConversionElement[] = [
     end: "_",
     open: "<u>",
     close: "</u>",
+    exampleContents: "underlined",
     description: "Underlines the enclosed text",
   },
   {
@@ -63,6 +68,7 @@ const defaultConversions: ConversionElement[] = [
     end: "^",
     open: "<sup>",
     close: "</sup>",
+    exampleContents: "superscript",
     description: "Places the enclosed text in superscript",
   },
   {
@@ -70,6 +76,7 @@ const defaultConversions: ConversionElement[] = [
     end: "\n",
     open: "<hr>",
     close: "",
+    exampleContents: null,
     description: "Places a horizontal line across the page",
   },
   {
@@ -77,6 +84,7 @@ const defaultConversions: ConversionElement[] = [
     end: "",
     open: "<p>",
     close: "",
+    exampleContents: null,
     description: null,
   },
   {
@@ -84,6 +92,7 @@ const defaultConversions: ConversionElement[] = [
     end: "",
     open: "<br>",
     close: "",
+    exampleContents: null,
     description: null,
   },
   {
@@ -91,6 +100,7 @@ const defaultConversions: ConversionElement[] = [
     end: "\n",
     open: '<h4 class="blog-text-title">',
     close: "</h4>",
+    exampleContents: "Title",
     description: "Makes the rest of the line a top-level header",
   },
   {
@@ -98,6 +108,7 @@ const defaultConversions: ConversionElement[] = [
     end: "\n",
     open: '<h5 class="blog-text-subtitle">',
     close: "</h5>",
+    exampleContents: "Subtitle",
     description: "Makes the rest of the line a second-level header",
   },
   {
@@ -105,6 +116,7 @@ const defaultConversions: ConversionElement[] = [
     end: "\n",
     open: '<h6 class="blog-text-minor-title">',
     close: "</h6>",
+    exampleContents: "Minor Title",
     description: "Makes the rest of the line a third-level header",
   },
   {
@@ -112,6 +124,8 @@ const defaultConversions: ConversionElement[] = [
     end: " link--",
     open: "<a class='blog-text-link' ",
     close: "</a>",
+    exampleContents: () =>
+      '&lt;target&gt; &quot;<a href="<target>" title="<title>">&lt;text&gt;</a>&quot; &quot;&lt;title&gt;&quot;',
     description: `Creates a text link.
     Usage: --link <target> "<text>" "<title>" link--
       <target> is the URL to link to
@@ -196,6 +210,8 @@ const defaultConversions: ConversionElement[] = [
     end: " image--",
     open: "<figure class='blog-text-image-container'><img class='blog-text-image' loading='lazy' ",
     close: "</figure>",
+    exampleContents: () =>
+      "&lt;source&gt; &quot;&lt;title&gt;&quot; &quot;&lt;error-text&gt;&quot;",
     description: `Insert an image into the page.
     Usage: --image <source> "<title>" "<alt-text>" image--
       <source> is the URL of the image you want to display
@@ -287,6 +303,7 @@ const defaultConversions: ConversionElement[] = [
     end: "\nlist--",
     open: "",
     close: "",
+    exampleContents: "[un]ordered<br>Item 1<br>Item 2<br>",
     description: `Create a list of items. Note that this must appear at the start of a line.
     Usage:
     --list <type>
@@ -339,7 +356,34 @@ const defaultConversions: ConversionElement[] = [
   },
 ];
 
-// Produces HTML describing usage of the supported blog item translations
+// Renders the HTML for a blog item header
+function blogHeaderRenderer(
+  title: string,
+  subtitle: string,
+  author: string,
+  published: string
+): string {
+  // Create "front matter"
+  let header = "";
+  header += "<h2 class='blog-entry-title'>" + title + "</h2>";
+  header += "<h3 class='blog-entry-subtitle'>" + subtitle + "</h3>";
+
+  // Now throw in the publication info
+  header +=
+    "<div class='blog-entry-author-date-row'><div class='blog-entry-author'><span class='blog-entry-author-text'>Written By: </span>";
+  header += author;
+  header +=
+    "</div><div class='blog-entry-date'><span class='blog-entry-date-text'>Written on: </span>";
+
+  // The date in the listing could be in any format that Date can parse (for author's convenience)
+  // For example, the test entry has its datestamp as formatted by Git showing the commit where I wrote it.
+  // We should re-format it into a format the reader will like.
+  header += new Date(published).toLocaleString();
+  header += "</div></div>";
+  return header;
+}
+
+// Produces HTML describing in detail usage of the supported blog item translations
 export function blogItemUsage(): string {
   const descriptions: string[] = [];
   for (const conversion of defaultConversions) {
@@ -379,31 +423,47 @@ export function blogItemUsage(): string {
   return descriptions.join("");
 }
 
-// Renders the HTML for a blog item header
-function blogHeaderRenderer(
-  title: string,
-  subtitle: string,
-  author: string,
-  published: string
-): string {
-  // Create "front matter"
-  let header = "";
-  header += "<h2 class='blog-entry-title'>" + title + "</h2>";
-  header += "<h3 class='blog-entry-subtitle'>" + subtitle + "</h3>";
+// Produces HTML listing briefly giving an example of all blog item translations
+export function blogItemUsageList(): string {
+  const descriptions: string[] = [];
+  for (const conversion of defaultConversions) {
+    // Skip any entries that have null descriptions
+    // (AKA 'pseudoconversions')
+    if (conversion.description == null) continue;
 
-  // Now throw in the publication info
-  header +=
-    "<div class='blog-entry-author-date-row'><div class='blog-entry-author'><span class='blog-entry-author-text'>Written By: </span>";
-  header += author;
-  header +=
-    "</div><div class='blog-entry-date'><span class='blog-entry-date-text'>Written on: </span>";
+    // Start with a container and starting text
+    let description =
+      "<li class='blog-specification-list-item'>" +
+      escapeStringForHTML(conversion.start);
 
-  // The date in the listing could be in any format that Date can parse (for author's convenience)
-  // For example, the test entry has its datestamp as formatted by Git showing the commit where I wrote it.
-  // We should re-format it into a format the reader will like.
-  header += new Date(published).toLocaleString();
-  header += "</div></div>";
-  return header;
+    // Then put in the example text.
+    // There are three types of example text.
+    //  - Null (just insert the start/end tags)
+    //  - Constant string (insert the string into the description with styling tags from the conversion)
+    //  - Function (call the function with the conversion, and insert the result as-is)
+    if (conversion.exampleContents == null) {
+      description += conversion.open;
+      description += conversion.end;
+    } else if (typeof conversion.exampleContents === "function") {
+      description += conversion.exampleContents(conversion);
+    } else {
+      description += conversion.open;
+      description += conversion.exampleContents;
+      description += conversion.close;
+    }
+
+    // Now close the text, and container
+    description += escapeStringForHTML(conversion.end);
+    description += "</li>";
+
+    // And push it into the list
+    descriptions.push(description);
+  }
+
+  // Insert the list items into an unordered list, and return it.
+  return (
+    "<ul class='blog-specification-list'>" + descriptions.join("") + "</ul>"
+  );
 }
 
 // Renders a blog item based on variables, rather than a file of contents
