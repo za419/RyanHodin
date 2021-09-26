@@ -125,7 +125,7 @@ const defaultConversions: ConversionElement[] = [
     open: "<a class='blog-text-link' ",
     close: "</a>",
     exampleContents: () =>
-      '&lt;target&gt; &quot;<a href="/#/<target>" title="<title>">&lt;text&gt;</a>&quot; &quot;&lt;title&gt;&quot;',
+      '&lt;target&gt; &quot;<a href="javascript:void(0)" title="<title>">&lt;text&gt;</a>&quot; &quot;&lt;title&gt;&quot;',
     description: `Creates a text link.
     Usage: --link <target> "<text>" "<title>" link--
       <target> is the URL to link to
