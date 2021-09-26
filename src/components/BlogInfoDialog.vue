@@ -7,7 +7,9 @@
     <q-separator />
     <q-card-section v-html="informationList"> </q-card-section>
     <q-separator />
-    <q-card-actions><q-btn flat>More information</q-btn></q-card-actions>
+    <q-card-actions
+      ><q-btn flat to="/blogdevinfo">More information</q-btn></q-card-actions
+    >
   </q-card>
 </template>
 
