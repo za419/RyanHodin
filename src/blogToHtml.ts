@@ -339,6 +339,46 @@ const defaultConversions: ConversionElement[] = [
   },
 ];
 
+// Produces HTML describing usage of the supported blog item translations
+export function blogItemUsage(): string {
+  const descriptions: string[] = [];
+  for (const conversion of defaultConversions) {
+    // Skip any entries that have null descriptions
+    // (this is a signal that we're looking as a 'pseudoconversion', like for newlines)
+    if (conversion.description == null) continue;
+
+    // Start with a container
+    let description = "<div class='blog-specification-usage'>";
+
+    // First, add in the usage.
+    // There are two types of tag - Those with empty ends (which replace the start string),
+    // and those which enclose and modify some text.
+    // We need to handle both.
+    description += "<div class='blog-specification-usage-text'>";
+    description += escapeStringForHTML(conversion.start);
+    if (conversion.end != "" && conversion.end != "\n") {
+      // Text-enclosed usage
+      description += "&lt;contents&gt;";
+      description += escapeStringForHTML(conversion.end);
+    }
+    description += "</div>";
+
+    // Now, throw in the description specified in the description.
+    description += "<div class='blog-specification-usage-description'>";
+    // Make newlines in the text render as newlines in HTML.
+    description += escapeStringForHTML(conversion.description).replaceAll(
+      "\n",
+      "<br>"
+    );
+    description += "</div>";
+
+    // And finally close the container div and add it to the array.
+    description += "</div>";
+    descriptions.push(description);
+  }
+  return descriptions.join("");
+}
+
 // Renders the HTML for a blog item header
 function blogHeaderRenderer(
   title: string,
