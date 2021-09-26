@@ -1,13 +1,11 @@
 <template>
   <q-card class="blog-info-dialog-card">
     <q-card-section>
-      <h3>Blog Item Styles:</h3>
+      <h4 class="blog-info-dialog-title">Blog Item Styles</h4>
       The following styles are available in blog posts:
     </q-card-section>
     <q-separator />
-    <q-card-section>
-      {{ informationList }}
-    </q-card-section>
+    <q-card-section v-html="informationList"> </q-card-section>
     <q-separator />
     <q-card-actions><q-btn flat>More information</q-btn></q-card-actions>
   </q-card>
@@ -25,4 +23,10 @@ export default {
 };
 </script>
 
-<style lang="scss"></style>
+<style lang="scss">
+.blog-info-dialog-card {
+  .blog-info-dialog-title {
+    margin: 0.75em 0;
+  }
+}
+</style>
