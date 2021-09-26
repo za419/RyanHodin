@@ -30,6 +30,13 @@ const routes: Array<RouteConfig> = [
       import(/* webpackChunkName: "blog" */ "../views/BlogPost.vue"),
   },
   {
+    path: "/blogdevinfo",
+    name: "Blog IDE Info",
+    props: true,
+    component: () =>
+      import(/* webpackChunkName: "blog" */ "../views/BlogInfo.vue"),
+  },
+  {
     path: "/blogdev",
     name: "Blog IDE",
     component: () =>
