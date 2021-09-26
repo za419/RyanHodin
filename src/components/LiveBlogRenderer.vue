@@ -3,7 +3,7 @@
     <h3>
       Live Blog Post Preview
       <q-btn flat class="info-button" @click="dialog = true">
-        ><q-icon name="info" size="1.5em"
+        <q-icon name="info" size="1.5em"
       /></q-btn>
     </h3>
     <q-dialog v-model="dialog"><BlogInfoDialog /></q-dialog>
