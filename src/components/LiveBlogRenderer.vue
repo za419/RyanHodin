@@ -1,6 +1,12 @@
 <template>
   <div class="live-blog-preview-root">
-    <h3>Live Blog Post Preview</h3>
+    <h3>
+      Live Blog Post Preview
+      <q-btn flat class="info-button" @click="dialog = true"
+        ><q-icon name="info" size="1.5em"
+      /></q-btn>
+    </h3>
+    <q-dialog v-model="dialog"><BlogInfoDialog /></q-dialog>
     <div class="meta-row">
       <input type="text" v-model="title" placeholder="Post title" />
       <input type="text" v-model="subtitle" placeholder="Post subtitle" />
@@ -20,11 +26,14 @@
 <script lang="ts">
 import Vue from "vue";
 import { blogDataRenderer } from "../blogToHtml";
+import BlogInfoDialog from "./BlogInfoDialog.vue";
 
 export default Vue.extend({
+  components: { BlogInfoDialog },
   name: "LiveBlogRenderer",
   data(): Record<string, string> {
     return {
+      dialog: "",
       title: "",
       subtitle: "",
       source: "",
