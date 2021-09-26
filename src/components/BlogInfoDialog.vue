@@ -13,14 +13,15 @@
 
 <script lang="ts">
 import { blogItemUsageList } from "@/blogToHtml";
-export default {
+import Vue from "vue";
+export default Vue.extend({
   name: "BlogInfoDialog",
   computed: {
     informationList(): string {
       return blogItemUsageList();
     },
   },
-};
+});
 </script>
 
 <style lang="scss">
