@@ -31,6 +31,13 @@ export default {
 
   // From here down, we're duplicating FullBlogItem's styles, except custom for our dialog.
   .blog-specification-list-item {
+    // Special-case: Adjust underlines so it's more obvious what the trigger is
+    u {
+      display: inline-block;
+      transform: translateY(5%);
+      margin: 0 0.075ch;
+    }
+
     h4.blog-text-title {
       display: inline-block;
       margin: 0 1ch;
