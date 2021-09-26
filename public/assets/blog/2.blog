@@ -22,7 +22,7 @@ Or, maybe that's incredibly stupid.
 
 _____
 # In retrospect
-During the process of creating this site, I learned many things - And more than a few of those have had to do with this series of articles. Whether or not this constitutes a blog (The answer to that question is likely ambiguous and subjective enough that I have wasted my time by reflecting on it), it has given me a chance to practice some interesting string parsing technique, to make some decisions that were perhaps, in retrospect, made poorly (for example, the choice to use a single '-' to denote strikethrough and a pair to denote a literal hyphen - Which is a decision which is annoying, and, perhaps, one I shall end up reversing in the near future), and to consider the intricacies of writing in my own syntax beyond simply imagining such an act.
+During the process of creating this site, I learned many things - And more than a few of those have had to do with this series of articles. Whether or not this constitutes a blog (The answer to that question is likely ambiguous and subjective enough that I have wasted my time by reflecting on it), it has given me a chance to practice some interesting string parsing technique, to make some decisions that were perhaps, in retrospect, made poorly (for example, the choice to use a single '-' to denote strikethrough and a pair to denote a literal hyphen - Which is a decision which is annoying, and, perhaps, one I shall end up reversing in the near future [And have since reversed since initially writing this post, in fact]), and to consider the intricacies of writing in my own syntax beyond simply imagining such an act.
 
 And, among other things, some things I would do differently.
 What, you ask?
