@@ -22,7 +22,7 @@ const htmlSpecialCharacters: { [key: string]: string } = {
 
 function escapeStringForHTML(str: string): string {
   for (const key in htmlSpecialCharacters) {
-    str = str.replace(key, htmlSpecialCharacters[key]);
+    str = str.replaceAll(key, htmlSpecialCharacters[key]);
   }
   return str;
 }
