@@ -52,6 +52,14 @@
       hour of work, and the whole thing is generally a better idea.
     </p>
     <p>
+      If you would like to see it, the source code for this site is available
+      <a
+        href="https://github.com/za419/RyanHodin/"
+        title="The source repository for this website on GitHub"
+        >here.</a
+      >
+    </p>
+    <p>
       Ultimately though, the point is for me to learn things. Like the
       <router-link to="/blogdev">blog generation system</router-link> I wrote,
       which is entirely client-side, uses a custom language, and is generally
