@@ -126,7 +126,7 @@ const defaultConversions: ConversionElement[] = [
     close: "</a>",
     exampleContents: () =>
       '&lt;target&gt; &quot;<a href="javascript:void(0)" title="<title>">&lt;text&gt;</a>&quot; &quot;&lt;title&gt;&quot;',
-    description: `Creates a text link.
+    description: `Creates a text link (Contents will be parsed to create a link).
     Usage: --link <target> "<text>" "<title>" link--
       <target> is the URL to link to
       <text> (note enclosure in quotes) is the text that will be linked
@@ -212,7 +212,7 @@ const defaultConversions: ConversionElement[] = [
     close: "</figure>",
     exampleContents: () =>
       "&lt;source&gt; &quot;&lt;title&gt;&quot; &quot;&lt;error-text&gt;&quot;",
-    description: `Insert an image into the page.
+    description: `Insert an image into the page (Contents will be parsed to describe an image).
     Usage: --image <source> "<title>" "<alt-text>" image--
       <source> is the URL of the image you want to display
       <title> (note enclosure in quotes) will be displayed both as hover-over text and below the image
@@ -304,15 +304,16 @@ const defaultConversions: ConversionElement[] = [
     open: "",
     close: "",
     exampleContents: "[un]ordered<br>Item 1<br>Item 2<br>",
-    description: `Create a list of items. Note that this must appear at the start of a line.
+    description: `Create a list of items from contents. Note that this must appear at the start of a line.
     Usage:
     --list <type>
     <items>
     list--
-      <type> describes what style of list to use. This can be one of:
+
+    <type> describes what style of list to use. This can be one of:
         "ordered" (items are numbered)
         "unordered" (items are noted with bullet points)
-      <items> is the list of contents to be presented, one per line. For example:
+    <items> is the list of contents to be presented, one per line. For example:
         First item
         Second item
         Third item
@@ -408,13 +409,13 @@ export function blogItemUsage(): string {
     description += "</div>";
 
     // Now, throw in the description specified in the description.
-    description += "<div class='blog-specification-usage-description'>";
+    description += "<pre class='blog-specification-usage-description'>";
     // Make newlines in the text render as newlines in HTML.
     description += escapeStringForHTML(conversion.description).replaceAll(
       "\n",
       "<br>"
     );
-    description += "</div>";
+    description += "</pre>";
 
     // And finally close the container div and add it to the array.
     description += "</div>";

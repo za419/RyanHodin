@@ -49,11 +49,16 @@ export default Vue.extend({
   margin: auto;
 
   .blog-info-contents {
-    margin-top: 2em;
+    margin-top: 3em;
   }
 
   .blog-specification-usage {
-    margin-bottom: 1em;
+    margin-bottom: 2em;
+
+    .blog-specification-usage-description {
+      margin: 0;
+      font-family: inherit;
+    }
   }
 }
 </style>
