@@ -58,6 +58,29 @@ export default Vue.extend({
     .blog-specification-usage-description {
       margin: 0;
       font-family: inherit;
+      white-space: pre-wrap;
+    }
+  }
+}
+
+@media screen and (min-width: 750px) {
+  .blog-info-host {
+    font-size: 1.1em;
+  }
+}
+
+@media screen and (min-width: 1000px) {
+  .blog-info-host {
+    font-size: 1.2em;
+  }
+}
+
+@media screen and (min-width: 1500px) {
+  .blog-info-host {
+    font-size: 1.3em;
+
+    .blog-info-title {
+      font-size: 2.5rem;
     }
   }
 }
