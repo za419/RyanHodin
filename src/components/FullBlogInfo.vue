@@ -51,5 +51,9 @@ export default Vue.extend({
   .blog-info-contents {
     margin-top: 2em;
   }
+
+  .blog-specification-usage {
+    margin-bottom: 1em;
+  }
 }
 </style>
