@@ -117,6 +117,46 @@ export default {
   }
 }
 
+// In landscape view, we have more space sideways than up-and-down, so flip ourselves to be wider than tall.
+// Why did I not design it this way initially, you might ask?
+// After all, most of this site is designed desktop, fullscreen-ish first, then it gets adjustments for mobile/portrait afterwards.
+// (you can see this by looking at what I've put in @media queries as opposed to the "main" block of SCSS)
+// The answer is, on a large desktop screen this whole component is so small that it doesn't matter.
+// My flow for checking things is desktop -> mobile portrait -> mobile landscape -
+// So I didn't notice I should do this until really late in development.
+@media screen and (orientation: landscape) {
+  .contact-section-root {
+    .contact-info {
+      grid-template-columns: unset;
+      grid-template-rows: auto 1fr auto;
+      grid-template-areas:
+        "left left left"
+        "right right right";
+
+      .left {
+        grid-row: 1;
+      }
+
+      .right {
+        grid-row: 2;
+      }
+
+      .first-row {
+        grid-column: 1;
+      }
+
+      .second-row {
+        grid-column: 2;
+        justify-self: start;
+      }
+
+      .third-row {
+        grid-column: 3;
+      }
+    }
+  }
+}
+
 // If someone asked us to save space and we're on a small screen, hide the header
 @media screen and (max-width: 500px) {
   .space-saver-500px-wide .contact-section-root .header {
