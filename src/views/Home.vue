@@ -150,6 +150,15 @@ export default class Home extends Vue {
   pageTitle = "Ryan Hodin";
   pageDescription = "The personal website of a programmer named Ryan Hodin";
   blogIDs = blogListing.map((post) => post.id);
+
+  // Lifecycle - While we're mounted, request other components to save space below 100vh height
+  // (we have lots of content to display, and we want small screens to have room to display it)
+  mounted(): void {
+    document.body.classList.add("space-saver-100vh-tall");
+  }
+  beforeDestroy(): void {
+    document.body.classList.remove("space-saver-100vh-tall");
+  }
 }
 </script>
 
