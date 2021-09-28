@@ -88,6 +88,7 @@ export default Vue.extend({
 
     input {
       flex-grow: 1;
+      max-width: calc(50% - 0.5vh);
 
       &:first-child {
         margin-right: 1vh;
