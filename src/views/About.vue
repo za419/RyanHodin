@@ -49,9 +49,7 @@
       This site is developed with Vue, in Typescript and SCSS, and it uses
       <a href="https://quasar.dev/" title="Quasar">Quasar</a>
       as a design framework. So it's much nicer looking, I get more done per
-      hour of work, and the whole thing is generally a better idea.
-    </p>
-    <p>
+      hour of work, and the whole thing is generally a better idea.<br />
       If you would like to see it, the source code for this site is available
       <a
         href="https://github.com/za419/RyanHodin/"
