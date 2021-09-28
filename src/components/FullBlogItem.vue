@@ -215,6 +215,22 @@ export default Vue.extend({
     .blog-entry-author-text {
       display: none;
     }
+
+    h2.blog-entry-title {
+      font-size: 2.25rem;
+      line-height: 2.25rem;
+    }
+
+    h3.blog-entry-subtitle {
+      font-size: 1.5rem;
+      line-height: 1.5rem;
+    }
+  }
+}
+
+@media screen and (max-width: 400px) {
+  .full-blog-item-root {
+    word-wrap: break-word;
   }
 }
 
