@@ -158,13 +158,13 @@ export default {
 }
 
 // If someone asked us to save space and we're on a small screen, hide the header
-@media screen and (max-width: 500px) {
+@media screen and (orientation: portrait) and (max-width: 500px) {
   .space-saver-500px-wide .contact-section-root .header {
     display: none;
   }
 }
 
-@media screen and (max-height: 50em) {
+@media screen and (orientation: landscape) and (max-height: 50em) {
   .space-saver-50em-tall .contact-section-root .header {
     display: none;
   }
