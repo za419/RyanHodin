@@ -83,6 +83,13 @@ export default Vue.extend({
     display: inline-block;
     width: 100%;
 
+    // Quick trick to center this vertically
+    // This makes a list of these appear evenly separated...
+    // Otherwise, previews that end up with vertically shorter titles or subtitles would
+    // be set apart from the others - Because they'd be at the top of a large space.
+    top: 50%;
+    transform: translateY(-50%);
+
     .go-to-arrow {
       position: absolute;
       margin: 0 -20px;
