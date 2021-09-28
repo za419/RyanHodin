@@ -232,13 +232,13 @@ export default Vue.extend({
   mounted() {
     document.body.classList.add(
       "space-saver-500px-wide",
-      "space-saver-100vh-tall"
+      "space-saver-50em-tall"
     );
   },
   beforeDestroy() {
     document.body.classList.remove(
       "space-saver-500px-wide",
-      "space-saver-100vh-tall"
+      "space-saver-50em-tall"
     );
   },
 });

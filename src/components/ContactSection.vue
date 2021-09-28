@@ -164,8 +164,8 @@ export default {
   }
 }
 
-@media screen and (max-height: 100vh) {
-  .space-saver-100vh-tall .contact-section-root .header {
+@media screen and (max-height: 50em) {
+  .space-saver-50em-tall .contact-section-root .header {
     display: none;
   }
 }

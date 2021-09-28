@@ -154,10 +154,10 @@ export default class Home extends Vue {
   // Lifecycle - While we're mounted, request other components to save space below 100vh height
   // (we have lots of content to display, and we want small screens to have room to display it)
   mounted(): void {
-    document.body.classList.add("space-saver-100vh-tall");
+    document.body.classList.add("space-saver-50em-tall");
   }
   beforeDestroy(): void {
-    document.body.classList.remove("space-saver-100vh-tall");
+    document.body.classList.remove("space-saver-50em-tall");
   }
 }
 </script>
