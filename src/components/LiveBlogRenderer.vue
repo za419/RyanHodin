@@ -102,9 +102,26 @@ export default Vue.extend({
   }
 
   .results {
-    height: 750px;
+    min-height: 5em;
+    max-height: calc(77.5vh - 250px);
     width: 100%;
     overflow-y: auto;
+  }
+}
+
+@media screen and (max-height: 1100px) {
+  .live-blog-preview-root .results {
+    max-height: calc(75vh - 250px);
+  }
+}
+
+@media screen and (max-height: 30em) {
+  .live-blog-preview-root {
+    h3 {
+      font-size: 2rem;
+      line-height: 2rem;
+      margin: 6px 0;
+    }
   }
 }
 </style>
