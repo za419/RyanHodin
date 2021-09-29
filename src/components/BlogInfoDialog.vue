@@ -8,7 +8,9 @@
     <q-card-section v-html="informationList"> </q-card-section>
     <q-separator />
     <q-card-actions
-      ><q-btn flat to="/blogdevinfo">More information</q-btn></q-card-actions
+      ><router-link class="reset-text" to="/blogdevinfo" tag="a" target="_blank"
+        ><q-btn flat>More information</q-btn></router-link
+      ></q-card-actions
     >
   </q-card>
 </template>
@@ -61,6 +63,11 @@ export default Vue.extend({
       font-size: 1.15em;
       line-height: 1.15em;
     }
+  }
+
+  .reset-text {
+    text-decoration: unset;
+    color: unset;
   }
 }
 </style>
