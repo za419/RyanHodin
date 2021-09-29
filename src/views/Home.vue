@@ -41,7 +41,7 @@
       <h3 class="other-projects-title">Some other things I've worked on</h3>
       <div class="other-projects">
         <figure class="other-project">
-          <a href="https://cadenceradio.com/"
+          <a href="https://cadenceradio.com/" target="_blank"
             ><picture>
               <source type="image/webp" srcset="/assets/CadenceRadio.webp" />
               <img
@@ -52,15 +52,17 @@
                 alt="Screenshot of the Cadence Radio website" /></picture
           ></a>
           <figcaption class="other-project-caption">
-            <a href="https://cadenceradio.com/">Cadence Radio</a>, a project by
-            <a href="https://kenellorando.com">Ken Ellorando</a>, is an internet
-            radio with an interface allowing multiple themes and user-provided
-            song requests. It has been through several redesigns and rewrites,
-            each of which I have contributed to in varying amounts.
+            <a href="https://cadenceradio.com/" target="_blank">Cadence Radio</a
+            >, a project by
+            <a href="https://kenellorando.com" target="_blank">Ken Ellorando</a
+            >, is an internet radio with an interface allowing multiple themes
+            and user-provided song requests. It has been through several
+            redesigns and rewrites, each of which I have contributed to in
+            varying amounts.
           </figcaption>
         </figure>
         <figure class="other-project">
-          <a href="https://github.com/za419/Cadencebot/"
+          <a href="https://github.com/za419/Cadencebot/" target="_blank"
             ><picture
               ><source
                 type="image/webp"
@@ -73,17 +75,19 @@
                 alt="Screenshot of some interaction with CadenceBot" /></picture
           ></a>
           <figcaption class="other-project-caption">
-            <a href="https://github.com/za419/Cadencebot/">CadenceBot</a> is a
-            Discord bot which allows for control and playback of Cadence Radio
-            within a Discord server. It can play the stream, announce what song
-            is playing, submit requests for songs, and it supports several
+            <a href="https://github.com/za419/Cadencebot/" target="_blank"
+              >CadenceBot</a
+            >
+            is a Discord bot which allows for control and playback of Cadence
+            Radio within a Discord server. It can play the stream, announce what
+            song is playing, submit requests for songs, and it supports several
             unrelated commands specific to Discord. I manage the project, and I
             have contributed the vast majority of the code for it, in addition
             to hosting the production instance.
           </figcaption>
         </figure>
         <figure class="other-project">
-          <a href="https://github.com/za419/reddit-news/"
+          <a href="https://github.com/za419/reddit-news/" target="_blank"
             ><picture
               ><source type="image/webp" srcset="/assets/reddit-news.webp" />
               <img
@@ -94,9 +98,11 @@
                 alt="Screenshot of analysis results for an /r/news post about Joe Biden's victory in the US Presidential Election of 2020" /></picture
           ></a>
           <figcaption class="other-project-caption">
-            <a href="https://github.com/za419/reddit-news/">Reddit News</a> was
-            a group project for EECS 338 at Northwestern University, wherein I
-            wrote the majority of the code. The goal of the project was to use
+            <a href="https://github.com/za419/reddit-news/" target="_blank"
+              >Reddit News</a
+            >
+            was a group project for EECS 338 at Northwestern University, wherein
+            I wrote the majority of the code. The goal of the project was to use
             natural language processing to compare keywords found in an article
             to those found in the comments to a corresponding Reddit post - The
             concept being that it would be possible to have a sense of the
@@ -105,7 +111,7 @@
           </figcaption>
         </figure>
         <figure class="other-project">
-          <a href="https://github.com/za419/Hero/"
+          <a href="https://github.com/za419/Hero/" target="_blank"
             ><picture
               ><source type="image/webp" srcset="/assets/hero-1.webp" />
               <img
@@ -116,10 +122,11 @@
                 alt="Screenshot of some partial self-hosting as a demo of Hero's capability and behavior" /></picture
           ></a>
           <figcaption class="other-project-caption">
-            <a href="https://github.com/za419/Hero/">Hero</a> (named for
-            Herodotus) is a toy
+            <a href="https://github.com/za419/Hero/" target="_blank">Hero</a>
+            (named for Herodotus) is a toy
             <a
               href="https://en.wikipedia.org/wiki/Version_control"
+              target="_blank"
               title="Wikipedia article for version control"
               >Version Control System</a
             >
