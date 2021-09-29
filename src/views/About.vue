@@ -39,20 +39,22 @@
     <h5 class="subtitle">About this website</h5>
     This is my personal website. A big part of why I made it was because I heard
     of
-    <a href="https://vuejs.org/" title="Vue.js">Vue.js</a>, and I wanted to give
-    it a try, and maybe also refresh my (extremely rusty and rather minimal) web
-    development skillset. Seriously, last time I made a website on my own, it
-    was using absolutely no framework, targeting pre-ES5 Javascript and CSS2.<br />
+    <a href="https://vuejs.org/" target="_blank" title="Vue.js">Vue.js</a>, and
+    I wanted to give it a try, and maybe also refresh my (extremely rusty and
+    rather minimal) web development skillset. Seriously, last time I made a
+    website on my own, it was using absolutely no framework, targeting pre-ES5
+    Javascript and CSS2.<br />
     It was bad. And I hated working on it, so it never got finished enough to go
     up on the open internet.
     <p>
       This site is developed with Vue, in Typescript and SCSS, and it uses
-      <a href="https://quasar.dev/" title="Quasar">Quasar</a>
+      <a href="https://quasar.dev/" target="_blank" title="Quasar">Quasar</a>
       as a design framework. So it's much nicer looking, I get more done per
       hour of work, and the whole thing is generally a better idea.<br />
       If you would like to see it, the source code for this site is available
       <a
         href="https://github.com/za419/RyanHodin/"
+        target="_blank"
         title="The source repository for this website on GitHub"
         >here.</a
       >
