@@ -1,7 +1,12 @@
 <template>
   <q-card class="blog-info-dialog-card">
     <q-card-section>
-      <h4 class="blog-info-dialog-title">Blog Item Styles</h4>
+      <h4 class="blog-info-dialog-title">
+        Blog Item Styles
+        <div class="close-icon">
+          <q-btn icon="close" size="15px" flat round dense v-close-popup />
+        </div>
+      </h4>
       The following styles are available in blog posts:
     </q-card-section>
     <q-separator />
@@ -31,7 +36,16 @@ export default Vue.extend({
 <style lang="scss">
 .blog-info-dialog-card {
   .blog-info-dialog-title {
-    margin: 0.75em 0;
+    position: relative;
+    margin-bottom: 0.75em;
+    margin-top: 0.25em;
+
+    .close-icon {
+      position: absolute;
+      right: 0;
+      top: -0.4em;
+      z-index: 9;
+    }
   }
 
   // From here down, we're duplicating FullBlogItem's styles, except custom for our dialog.
