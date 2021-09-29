@@ -113,6 +113,7 @@ export default {
 
     .q-icon {
       color: black;
+      margin-right: 0.15ch;
     }
   }
 }
