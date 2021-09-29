@@ -3,40 +3,40 @@
     <h6 class="header">Contact&nbsp;Me</h6>
     <div class="contact-info">
       <div class="left first-row">
-        <a v-bind:href="'tel:' + phoneNumber"
+        <a v-bind:href="'tel:' + phoneNumber" target="_blank"
           ><q-icon name="phone" /><span class="underline">{{
             phoneNumber
           }}</span></a
         >
       </div>
       <div class="right first-row">
-        <a v-bind:href="'mailto:' + email"
+        <a v-bind:href="'mailto:' + email" target="_blank"
           ><q-icon name="mail" /><span class="underline">{{ email }}</span></a
         >
       </div>
       <div class="left second-row">
-        <a v-bind:href="discordURL"
+        <a v-bind:href="discordURL" target="_blank"
           ><q-icon name="fab fa-discord" /><span class="underline"
             >za419#0014</span
           ></a
         >
       </div>
       <div class="right second-row">
-        <a v-bind:href="githubURL"
+        <a v-bind:href="githubURL" target="_blank"
           ><q-icon name="fab fa-github" /><span class="underline"
             >za419</span
           ></a
         >
       </div>
       <div class="left third-row">
-        <a v-bind:href="facebookURL"
+        <a v-bind:href="facebookURL" target="_blank"
           ><q-icon name="fab fa-facebook" /><span class="underline"
             >Ryan Hodin</span
           ></a
         >
       </div>
       <div class="right third-row">
-        <a v-bind:href="linkedinURL"
+        <a v-bind:href="linkedinURL" target="_blank"
           ><q-icon name="fab fa-linkedin" /><span class="underline"
             >Ryan Hodin</span
           ></a
