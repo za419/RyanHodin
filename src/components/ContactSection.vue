@@ -51,8 +51,8 @@ export default {
   name: "ContactSection",
   data: (): Record<string, unknown> => {
     return {
-      phoneNumber: "(012)345-6789",
-      email: "address@example.com",
+      phoneNumber: "(775)622-7959",
+      email: "ryan951357@gmail.com",
       discordURL: "https://discord.com/users/195682839998627840",
       githubURL: "https://github.com/za419",
       facebookURL: "/",
