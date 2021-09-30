@@ -158,6 +158,22 @@ export default {
   }
 }
 
+// On very narrow screens, take up slightly more of the page width and slightly shrink the text to make sure we have enough room
+@media screen and (max-width: 500px) {
+  .contact-section-root {
+    width: 90%;
+
+    .header {
+      font-size: 1.1rem;
+      line-height: 1.15rem;
+    }
+
+    .contact-info {
+      font-size: 0.9em;
+    }
+  }
+}
+
 // If someone asked us to save space and we're on a small screen, hide the header
 @media screen and (orientation: portrait) and (max-width: 500px) {
   .space-saver-500px-wide .contact-section-root .header {
